@@ -545,19 +545,7 @@ public class SpaceAsteroid extends Application {
             for (int i = 0; i < weapons.size(); i++) {
                 for (int j = 0; j < asteroid.size(); j++) {
                     if (weapons.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
-                        Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
-                        ImageView imgViewExplosion = new ImageView(imgExplosion);
-                        imgViewExplosion.relocate(asteroid.get(j).getLayoutX(), asteroid.get(j).getLayoutY());
-                        root.getChildren().remove(asteroid.get(j));
-                        asteroid.remove(j);
-                        root.getChildren().add(imgViewExplosion);
-                        PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion doesn't infinitely loop.
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgViewExplosion);
-                        });
-                        wait.play();
-                        root.getChildren().remove(weapons.get(i));
-                        weapons.remove(i);
+                        collideCheck(i, j, asteroid);
                         score += 2;
                         txtscore.setText("Score: " + score);
                     }
@@ -566,24 +554,28 @@ public class SpaceAsteroid extends Application {
             for (int i = 0; i < weapons.size(); i++) {
                 for (int j = 0; j < bigAsteroid.size(); j++) {
                     if (weapons.get(i).getBoundsInParent().intersects(bigAsteroid.get(j).getBoundsInParent())) {
-                        Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
-                        ImageView imgviewExplosion = new ImageView(imgExplosion);
-                        imgviewExplosion.relocate(bigAsteroid.get(j).getLayoutX(), bigAsteroid.get(j).getLayoutY());
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        bigAsteroid.remove(j);
-                        root.getChildren().add(imgviewExplosion);
-                        PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion doesn't infinitely loop.
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgviewExplosion);
-                        });
-                        wait.play();
-                        root.getChildren().remove(weapons.get(i));
-                        weapons.remove(i);
+                        collideCheck(i, j, bigAsteroid);
                         score += 4;
                         txtscore.setText("Score: " + score);
                     }
                 }
             }
+        }
+
+        public void collideCheck(int i, int j, ArrayList<Node> asteroid) {
+            Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
+            ImageView imgViewExplosion = new ImageView(imgExplosion);
+            imgViewExplosion.relocate(asteroid.get(j).getLayoutX(), asteroid.get(j).getLayoutY());
+            root.getChildren().remove(asteroid.get(j));
+            asteroid.remove(j);
+            root.getChildren().add(imgViewExplosion);
+            PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion doesn't infinitely loop.
+            wait.setOnFinished((e) -> {
+                root.getChildren().remove(imgViewExplosion);
+            });
+            wait.play();
+            root.getChildren().remove(weapons.get(i));
+            weapons.remove(i);
         }
     }
 
