@@ -28,6 +28,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SpaceAsteroid extends Application {
     boolean goUp, goDown, goLeft, goRight, shoot;
@@ -44,10 +45,10 @@ public class SpaceAsteroid extends Application {
     TextField txtName = new TextField();
     boolean gameOver = false;
     Text txtscore;
-    Image imgArtWork = new Image(getClass().getResource("img/artwork.png").toExternalForm()); //Space asteroid logo in the main menu
+    Image imgArtWork = new Image(Objects.requireNonNull(getClass().getResource("img/artwork.png")).toExternalForm()); //Space asteroid logo in the main menu
     ImageView viewArtWork = new ImageView(imgArtWork);
     int score = 0; //Score being declared and initialized
-    Image imgShuttle = new Image(getClass().getResource("img/shuttle.png").toExternalForm());
+    Image imgShuttle = new Image(Objects.requireNonNull(getClass().getResource("img/shuttle.png")).toExternalForm());
     ImageView imgviewShuttle = new ImageView(imgShuttle);
 
     //Main menu Stage
@@ -143,9 +144,7 @@ public class SpaceAsteroid extends Application {
         root2.getChildren().add(lblRules);
         root2.getChildren().add(btnQuit);
         root2.getChildren().add(btnPlay);
-        btnQuit.setOnAction(e -> {
-            Platform.exit();
-        });
+        btnQuit.setOnAction(e -> Platform.exit());
         //Validating the textbox
         btnPlay.setOnAction(e -> {
             if (txtName.getText().isEmpty()) {
@@ -156,7 +155,7 @@ public class SpaceAsteroid extends Application {
                 return;
             }
             for (int i = 0; i < txtName.getText().length(); i++) {
-                if (Character.isDigit(txtName.getText().charAt(i)) == true) {
+                if (Character.isDigit(txtName.getText().charAt(i))) {
                     Alert error = new Alert(Alert.AlertType.ERROR);
                     error.setTitle("Entry Error");
                     error.setContentText("Name must not contain a digit");
@@ -194,64 +193,39 @@ public class SpaceAsteroid extends Application {
         stage3.setResizable(false);
         stage3.show();
         //Using the Key event with booleans to get the game controls to work.
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                switch (event.getCode()) {
-                    case UP:
-                        goUp = true;
-                        break;
-                    case DOWN:
-                        goDown = true;
-                        break;
-                    case LEFT:
-                        goLeft = true;
-                        break;
-                    case RIGHT:
-                        goRight = true;
-                        break;
-                    case SPACE:
-                        if (gameOver) {
-                            return;
-                        }
-                        if (!shoot) {
-                            Rectangle rect2 = new Rectangle();
-                            rect2.setWidth(5.0f);
-                            rect2.setHeight(10.0f);
-                            rect2.setFill(Color.RED);
-                            Node newWeapon = rect2;
-                            newWeapon.relocate(imgviewShuttle.getLayoutX() + 45, imgviewShuttle.getLayoutY() - 5);
-                            weapons.add(newWeapon);
-                            root.getChildren().add(newWeapon);
-                            shoot = true;
-                        }
-                        break;
-                    default:
-                        break;
+        scene.setOnKeyPressed(event -> {
+            switch (event.getCode()) {
+                case UP -> goUp = true;
+                case DOWN -> goDown = true;
+                case LEFT -> goLeft = true;
+                case RIGHT -> goRight = true;
+                case SPACE -> {
+                    if (gameOver) {
+                        return;
+                    }
+                    if (!shoot) {
+                        Rectangle rect2 = new Rectangle();
+                        rect2.setWidth(5.0f);
+                        rect2.setHeight(10.0f);
+                        rect2.setFill(Color.RED);
+                        rect2.relocate(imgviewShuttle.getLayoutX() + 45, imgviewShuttle.getLayoutY() - 5);
+                        weapons.add(rect2);
+                        root.getChildren().add(rect2);
+                        shoot = true;
+                    }
+                }
+                default -> {
                 }
             }
         });
-        scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                switch (event.getCode()) {
-                    case UP:
-                        goUp = false;
-                        break;
-                    case DOWN:
-                        goDown = false;
-                        break;
-                    case LEFT:
-                        goLeft = false;
-                        break;
-                    case RIGHT:
-                        goRight = false;
-                        break;
-                    case SPACE:
-                        shoot = false;
-                        break;
-                    default:
-                        break;
+        scene.setOnKeyReleased(event -> {
+            switch (event.getCode()) {
+                case UP -> goUp = false;
+                case DOWN -> goDown = false;
+                case LEFT -> goLeft = false;
+                case RIGHT -> goRight = false;
+                case SPACE -> shoot = false;
+                default -> {
                 }
             }
         });
@@ -293,55 +267,24 @@ public class SpaceAsteroid extends Application {
     public class Player {
         //This is if the shuttle collided with asteroid.
         public void collide() {
+            collideForPlayer(asteroid);
+
+            collideForPlayer(bigAsteroid);
+        }
+
+        public void collideForPlayer(ArrayList<Node> asteroid) {
             for (int i = 0; i < rocket.size(); i++) {
                 for (int j = 0; j < asteroid.size(); j++) {
                     if (rocket.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
                         gameOver = true;
-                        Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
+                        Image imgExplosion = new Image(Objects.requireNonNull(getClass().getResource("img/explosion.gif")).toExternalForm());
                         ImageView imgviewExplosion = new ImageView(imgExplosion);
                         imgviewExplosion.relocate(rocket.get(i).getLayoutX(), rocket.get(i).getLayoutY());
                         root.getChildren().remove(asteroid.get(j));
                         PauseTransition wait = new PauseTransition(Duration.seconds(0.8));
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgviewExplosion);
-                        });
+                        wait.setOnFinished((e) -> root.getChildren().remove(imgviewExplosion));
                         wait.play();
                         asteroid.remove(j);
-                        root.getChildren().add(imgviewExplosion);
-                        root.getChildren().remove(rocket.get(i));
-                        rocket.remove(i);
-                        Text txtGameOver = new Text(500, 360, "Gameover!");
-                        txtGameOver.setFill(Color.RED);
-                        Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
-                        txtGameOver.setFont(font3);
-                        root.getChildren().add(txtGameOver);
-                        Button btnQuit = new Button("Quit");
-                        btnQuit.setScaleX(6);
-                        btnQuit.setScaleY(4);
-                        btnQuit.setTextFill(Color.YELLOW);
-                        btnQuit.setTranslateX(1000);
-                        btnQuit.setTranslateY(600);
-                        btnQuit.setStyle("-fx-background-color: red;");
-                        root.getChildren().add(btnQuit);
-                        btnQuit.setOnAction(e -> Platform.exit());
-                    }
-                }
-            }
-
-            for (int i = 0; i < rocket.size(); i++) {
-                for (int j = 0; j < bigAsteroid.size(); j++) {
-                    if (rocket.get(i).getBoundsInParent().intersects(bigAsteroid.get(j).getBoundsInParent())) {
-                        gameOver = true;
-                        Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
-                        ImageView imgviewExplosion = new ImageView(imgExplosion);
-                        imgviewExplosion.relocate(rocket.get(i).getLayoutX(), rocket.get(i).getLayoutY());
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        PauseTransition wait = new PauseTransition(Duration.seconds(0.8));
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgviewExplosion);
-                        });
-                        wait.play();
-                        bigAsteroid.remove(j);
                         root.getChildren().add(imgviewExplosion);
                         root.getChildren().remove(rocket.get(i));
                         rocket.remove(i);
@@ -366,8 +309,8 @@ public class SpaceAsteroid extends Application {
     }
 
     public class Asteroid {
-        Image imgAsteroid = new Image(getClass().getResource("img/asteroid.png").toExternalForm());
-        Image imgBigAsteroid = new Image(getClass().getResource("img/big_asteroid.png").toExternalForm());
+        Image imgAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/asteroid.png")).toExternalForm());
+        Image imgBigAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/big_asteroid.png")).toExternalForm());
         ImageView imgviewAsteroid = new ImageView(imgAsteroid);
         ImageView imgviewBigAsteroid = new ImageView(imgBigAsteroid);
 
@@ -376,95 +319,42 @@ public class SpaceAsteroid extends Application {
             asteroidCounter2++;
             //This is an algorithm that will spawn the asteroids, as your score gets bigger more asteroids will spawn, to increase difficulty.
             if (score < 25) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
-                }
+                collideForSmall();
+                collideForBig();
             } else if (score >= 25 && score < 60) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
-                }
+                collideForSmall();
+                collideForSmall();
+                collideForBig();
             } else if (score >= 60 && score < 85) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
-                }
+                collideForSmall();
+                collideForSmall();
+                collideForSmall();
+                collideForBig();
             } else if (score >= 85) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
-                }
+                collideForSmall();
+                collideForSmall();
+                collideForSmall();
+                collideForSmall();
+                collideForBig();
             }
 
+        }
+
+        private void collideForBig() {
+            collideForAsteroid(asteroidCounter2, imgBigAsteroid, H, bigAsteroid);
+        }
+
+        private void collideForAsteroid(int asteroidCounter2, Image imgBigAsteroid, double h, ArrayList<Node> bigAsteroid) {
+            if (asteroidCounter2 % modifier == 0) {
+                Node newBigAsteroid = new ImageView(imgBigAsteroid);
+                newBigAsteroid.relocate((int) (Math.random() * (h + newBigAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
+                bigAsteroid.add(newBigAsteroid);
+                root.getChildren().add(newBigAsteroid);
+            }
+        }
+
+        private void collideForSmall() {
+            collideForAsteroid(asteroidCounter, imgAsteroid, W, asteroid);
         }
 
         //This methods cause the asteroids to move vertically downwards, the higher your score is the faster the asteroids will move; to increase difficulty
@@ -563,16 +453,14 @@ public class SpaceAsteroid extends Application {
         }
 
         public void collideCheck(int i, int j, ArrayList<Node> asteroid) {
-            Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
+            Image imgExplosion = new Image(Objects.requireNonNull(getClass().getResource("img/explosion.gif")).toExternalForm());
             ImageView imgViewExplosion = new ImageView(imgExplosion);
             imgViewExplosion.relocate(asteroid.get(j).getLayoutX(), asteroid.get(j).getLayoutY());
             root.getChildren().remove(asteroid.get(j));
             asteroid.remove(j);
             root.getChildren().add(imgViewExplosion);
             PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion doesn't infinitely loop.
-            wait.setOnFinished((e) -> {
-                root.getChildren().remove(imgViewExplosion);
-            });
+            wait.setOnFinished((e) -> root.getChildren().remove(imgViewExplosion));
             wait.play();
             root.getChildren().remove(weapons.get(i));
             weapons.remove(i);
@@ -592,7 +480,7 @@ public class SpaceAsteroid extends Application {
 
     public class Space {
         //This classes will add the background image to the stage
-        Image background = new Image(getClass().getResource("img/background.png").toExternalForm());
+        Image background = new Image(Objects.requireNonNull(getClass().getResource("img/background.png")).toExternalForm());
         ImageView imgbackground = new ImageView(background);
 
         public void Create() {
