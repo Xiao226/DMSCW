@@ -236,7 +236,8 @@ public class SpaceAsteroid extends Application {
             public void handle(long arg0) {
                 double currX = imgviewShuttle.getLayoutX();
                 double currY = imgviewShuttle.getLayoutY();
-                if (imgviewShuttle.getLayoutX() < 1120) //Creating a invisble game wall border
+                if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX()>0
+                        && imgviewShuttle.getLayoutY() < 660  && imgviewShuttle.getLayoutY() > 0)
                 {
                     if (goUp) currY -= delta;
                     if (goDown) currY += delta;
@@ -245,9 +246,21 @@ public class SpaceAsteroid extends Application {
                 }
                 if (imgviewShuttle.getLayoutX() >= 1120) {
                     if (goLeft) currX -= delta;
-                    if (goUp) currY -= delta;
-                    if (goDown) currY += delta;
+                    currY = getCurrY(currY);
                 }
+                else if (imgviewShuttle.getLayoutX() <= 0) {
+                    if (goRight) currX += delta;
+                    currY = getCurrY(currY);
+                }
+                else if (imgviewShuttle.getLayoutY() <= 0) {
+                    if (goDown) currY += delta;
+                    currX = getCurrX(currX);
+                }
+                else if (imgviewShuttle.getLayoutY() >= 660) {
+                    if (goUp) currY -= delta;
+                    currX = getCurrX(currX);
+                }
+
 
                 imgviewShuttle.relocate(currX, currY);
                 Player shuttle = new Player();
@@ -258,6 +271,30 @@ public class SpaceAsteroid extends Application {
                 asteroid.CreateAsteroid();
                 asteroid.moveAsteroid();
                 asteroid.collide();
+            }
+
+            public double getCurrX(double currX) {
+                if (imgviewShuttle.getLayoutX() < 1120  && imgviewShuttle.getLayoutX() > 0){
+                    if (goLeft) currX -= delta;
+                    if (goRight) currX += delta;
+                }else if (imgviewShuttle.getLayoutX() <= 0){
+                    if (goRight) currX += delta;
+                }else if (imgviewShuttle.getLayoutX() >= 1120){
+                    if (goLeft) currX -= delta;
+                }
+                return currX;
+            }
+
+            public double getCurrY(double currY) {
+                if (imgviewShuttle.getLayoutY() < 660  && imgviewShuttle.getLayoutY() > 0){
+                    if (goUp) currY -= delta;
+                    if (goDown) currY += delta;
+                }else if (imgviewShuttle.getLayoutY() <= 0){
+                    if (goDown) currY += delta;
+                }else if (imgviewShuttle.getLayoutY() >= 660){
+                    if (goUp) currY -= delta;
+                }
+                return currY;
             }
         };
         timer.start();
