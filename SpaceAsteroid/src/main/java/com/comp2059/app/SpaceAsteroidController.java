@@ -21,7 +21,8 @@ import java.util.Objects;
 
 public class SpaceAsteroidController {
     private static Stage stage=new Stage();
-
+    
+    @FXML
     public static void initialTheStage(Stage primaryStage) throws IOException {
         Parent startPage = FXMLLoader.load(SpaceAsteroidController.class.getResource("JavaFX/startPage.fxml"));
         stage=primaryStage;
