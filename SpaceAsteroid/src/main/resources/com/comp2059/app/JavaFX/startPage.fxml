@@ -9,8 +9,8 @@
       <ImageView fx:id="ImageShow" fitHeight="300.0" fitWidth="400.0" layoutX="294.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="Play" layoutX="809.0" layoutY="463.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToNameAndRule" prefHeight="60.0" prefWidth="100.0" text="PLAY" />
       <Button fx:id="Exit" layoutX="810.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="60.0" prefWidth="100.0" text="EXIT" />
-      <Button fx:id="skin" onMouseClicked="#onClickMoveToSkinChange" layoutX="128.0" layoutY="371.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="114.0" text="Ship Skin" />
-      <Button fx:id="background" onMouseClicked="#onClickMoveToBackgroundChange" layoutX="126.0" layoutY="456.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="114.0" text="Background" />
-      <Button fx:id="ranking" onMouseClicked="#onClickMoveToRanking" layoutX="124.0" layoutY="552.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="114.0" text="Ranking" />
+      <Button fx:id="skin" layoutX="128.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToSkinChange" prefHeight="69.0" prefWidth="114.0" text="Ship Skin" />
+      <Button fx:id="background" layoutX="126.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToBackgroundChange" prefHeight="69.0" prefWidth="114.0" text="Background" />
+      <Button fx:id="ranking" layoutX="124.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToRanking" prefHeight="69.0" prefWidth="114.0" text="Ranking" />
    </children>
 </AnchorPane>

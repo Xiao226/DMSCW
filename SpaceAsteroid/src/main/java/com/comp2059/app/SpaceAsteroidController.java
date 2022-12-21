@@ -25,7 +25,6 @@ public class SpaceAsteroidController {
     @FXML
     public static void initialTheStage(Stage primaryStage) throws IOException {
         Parent startPage = FXMLLoader.load(SpaceAsteroidController.class.getResource("JavaFX/startPage.fxml"));
-        stage=primaryStage;
         stage.setTitle("Welcome to F2A's Game");
         stage.setScene(new Scene(startPage, 1000, 700));// size of the window
         stage.show();
@@ -78,7 +77,9 @@ public class SpaceAsteroidController {
         stage.setTitle("Welcome to F2A's game");
         stage.setScene(new Scene(next, 1000, 700));// size of the window
     }
+    @FXML
     public void shotDown(MouseEvent mouseEvent) throws IOException{
         Platform.exit();
     }
+
 }
