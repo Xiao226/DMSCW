@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SpaceAsteroidApplication extends Application{
-    public static Stage startStage = new Stage();
+    public static Stage startStage;
     public static Stage endStage=new Stage();
     public static Stage ruleNameStage=new Stage();
     public static Stage rankingStage=new Stage();
@@ -50,6 +50,7 @@ public class SpaceAsteroidApplication extends Application{
         System.out.println("initial end succ");
     }
     public void initialStartPage() throws IOException {
+        startStage = new Stage();
         startPage = FXMLLoader.load(SpaceAsteroidController.class.getResource("JavaFX/startPage.fxml"));
         startStage.setTitle("Welcome to F2A's Game");
         startStage.setScene(new Scene(startPage, wideF2A, highF2A));// size of the window
