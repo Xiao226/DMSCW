@@ -6,6 +6,6 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.SpaceAsteroidController">
    <children>
-      <Button fx:id="Play" onMouseClicked="#onClickMoveToEndPage" layoutX="864.0" layoutY="609.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="PLAY" />
+      <Button fx:id="returnTOStart" onMouseClicked="#onClickMoveToStartPage" layoutX="500.0" layoutY="539.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>
