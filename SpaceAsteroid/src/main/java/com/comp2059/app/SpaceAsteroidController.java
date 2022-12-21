@@ -22,48 +22,49 @@ import java.util.Objects;
 import static com.comp2059.app.SpaceAsteroidApplication.*;
 
 public class SpaceAsteroidController {
-    public static Stage stage=new Stage();
-    
-
+    private Stage stage=new Stage();
     @FXML
     public void onClickMoveToNameAndRule(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("Read the Rule and Enter Your Name");
-        stage.setScene(new Scene(ruleAndNamePage, 1000, 700));// size of the window
+        startStage.close();
+        stage=ruleNameStage;
+        ruleNameStage.show();
     }
     @FXML
     public void onClickMoveToSkinChange(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("Change your ship's skin here");
-        stage.setScene(new Scene(skinPage, 1000, 700));// size of the window
+        startStage.close();
+        stage=skinStage;
+        skinStage.show();
     }
     @FXML
     public void onClickMoveToBackgroundChange(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("Change your background here");
-        stage.setScene(new Scene(backgroundPage, 1000, 700));// size of the window
+        startStage.close();
+        stage=backgroundStage;
+        backgroundStage.show();
     }
     @FXML
     public void onClickMoveToRanking(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("Ranking list");
-        stage.setScene(new Scene(rankingPage, 1000, 700));// size of the window
+        startStage.close();
+        rankingStage.show();
     }
     @FXML
     public void onClickMoveToPlay(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("This is your first try, have fun.");
-        stage.setScene(new Scene(gamePage, 1000, 700));// size of the window
+        ruleNameStage.close();
+        gameStage.show();
     }
     @FXML
     public void onClickMoveToEndPage(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("Whoops you failed");
-        stage.setScene(new Scene(endPage, 1000, 700));// size of the window
+        gameStage.close();
+        endStage.show();
     }
     @FXML
     public void onClickReMoveToGame(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("welcome back to the game again");// try to add a counter here
-        stage.setScene(new Scene(gamePage, 1000, 700));// size of the window
+        endStage.close();
+        gameStage.show();
     }
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
-        stage.setTitle("Welcome to F2A's game");
-        stage.setScene(new Scene(startPage, 1000, 700));// size of the window
+        stage.close();
+        startStage.show();
     }
     @FXML
     public void shotDown(MouseEvent mouseEvent) throws IOException{

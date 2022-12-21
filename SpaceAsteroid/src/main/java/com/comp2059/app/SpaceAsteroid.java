@@ -85,7 +85,7 @@ public class SpaceAsteroid extends Application {
         btnExit.setOnAction(e -> Platform.exit());
         btnStart.setOnAction(e -> {
             secondStage(); //This opens the second stage.
-            primaryStage.close();
+//            primaryStage.close();
         });
         Scene scene = new Scene(root, 1200, 720, Color.BLACK);
         primaryStage.setScene(scene);
