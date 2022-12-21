@@ -348,8 +348,6 @@ public class SpaceAsteroid extends Application {
     public class Asteroid {
         Image imgAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/asteroid.png")).toExternalForm());
         Image imgBigAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/big_asteroid.png")).toExternalForm());
-        ImageView imgviewAsteroid = new ImageView(imgAsteroid);
-        ImageView imgviewBigAsteroid = new ImageView(imgBigAsteroid);
 
         public void CreateAsteroid() {
             asteroidCounter++;
