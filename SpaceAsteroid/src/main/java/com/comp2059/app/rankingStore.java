@@ -2,10 +2,11 @@ package com.comp2059.app;
 
 import java.io.*;
 
+import static com.comp2059.app.informationStore.fileName;
+
 public class rankingStore {
 //    store structure
 //    player-name destroyed-asteroid-number beaten-boss-number live-time total-score
-    static String fileName ="./src/main/resources/com/comp2059/app/ranking.txt";
     public static String[][] getInformation(){
         String [][] result = new String[20][5];
         boolean initialNeed=false;
