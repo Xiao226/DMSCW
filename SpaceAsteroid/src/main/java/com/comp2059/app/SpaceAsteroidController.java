@@ -58,7 +58,8 @@ public class SpaceAsteroidController {
     }
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
-        stage.close();
+        ruleNameStage.close();
+        rankingStage.close();
         startStage.show();
     }
     @FXML

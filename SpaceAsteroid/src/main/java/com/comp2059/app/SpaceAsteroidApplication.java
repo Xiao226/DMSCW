@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.comp2059.app.appearanceController.*;
+
 public class SpaceAsteroidApplication extends Application{
     public static Stage startStage;
     public static Stage endStage;
@@ -67,6 +69,7 @@ public class SpaceAsteroidApplication extends Application{
         rankingStage.setScene(new Scene(rankingPage, wideF2A, highF2A));// size of the window
     }
     public void initialAppearancePage()throws IOException {
+
         appearanceStage = new Stage();
         appearanceStage.setResizable(false);
         appearancePage=FXMLLoader.load(getClass().getResource("JavaFX/appearanceChange.fxml"));
