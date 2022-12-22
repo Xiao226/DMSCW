@@ -10,12 +10,12 @@ import java.io.IOException;
 
 public class SpaceAsteroidApplication extends Application{
     public static Stage startStage;
-    public static Stage endStage=new Stage();
-    public static Stage ruleNameStage=new Stage();
-    public static Stage rankingStage=new Stage();
-    public static Stage skinStage=new Stage();
-    public static Stage backgroundStage=new Stage();
-    public static Stage gameStage=new Stage();
+    public static Stage endStage;
+    public static Stage ruleNameStage;
+    public static Stage rankingStage;
+    public static Stage skinStage;
+    public static Stage backgroundStage;
+    public static Stage gameStage;
     public static Parent startPage;
     public static Parent endPage;
     public static Parent ruleAndNamePage;
@@ -23,13 +23,14 @@ public class SpaceAsteroidApplication extends Application{
     public static Parent skinPage;
     public static Parent backgroundPage;
     public static Parent gamePage;
-    int wideF2A=1200;
-    int highF2A=720;
-    @Override
+    final int wideF2A=1200;
+    final int highF2A=720;
+
     public void start(Stage primaryStage) throws Exception{
         System.out.println("start");
         initialPages();
         System.out.println("start finish");
+        startStage.show();
     }
     public void initialPages() throws IOException {
         System.out.println("initial stage begin");
@@ -56,31 +57,37 @@ public class SpaceAsteroidApplication extends Application{
         startStage.setScene(new Scene(startPage, wideF2A, highF2A));// size of the window
     }
     public void initialEndPage()throws IOException {
+        endStage = new Stage();
         endPage=FXMLLoader.load(getClass().getResource("JavaFX/EndPage.fxml"));
         endStage.setTitle("Whoops you failed");
         endStage.setScene(new Scene(endPage, wideF2A, highF2A));// size of the window
     }
     public void initialRuleAndNamePage()throws IOException {
+        ruleNameStage = new Stage();
         ruleAndNamePage=FXMLLoader.load(getClass().getResource("JavaFX/RuleAndNamePage.fxml"));
         ruleNameStage.setTitle("Read the Rule and Enter Your Name");
         ruleNameStage.setScene(new Scene(ruleAndNamePage, wideF2A, highF2A));// size of the window
     }
     public void initialRankingPage()throws IOException {
+        rankingStage = new Stage();
         rankingPage= FXMLLoader.load(getClass().getResource("JavaFX/ranking.fxml"));
         rankingStage.setTitle("Ranking list");
         rankingStage.setScene(new Scene(rankingPage, wideF2A, highF2A));// size of the window
     }
     public void initialSkinPage()throws IOException {
+        skinStage = new Stage();
         skinPage=FXMLLoader.load(getClass().getResource("JavaFX/spaceShipSkin.fxml"));
         skinStage.setTitle("Change your ship's skin here");
         skinStage.setScene(new Scene(skinPage, wideF2A, highF2A));// size of the window
     }
     public void initialBackgroundPage()throws IOException {
+        backgroundStage = new Stage();
         backgroundPage=FXMLLoader.load(getClass().getResource("JavaFX/backgroundChange.fxml"));
         backgroundStage.setTitle("Change your background here");
         backgroundStage.setScene(new Scene(backgroundPage, wideF2A, highF2A));// size of the window
     }
     public void initialGamePage(String title)throws IOException {
+        gameStage = new Stage();
         gamePage = FXMLLoader.load(SpaceAsteroidApplication.class.getResource("JavaFX/gamePage.fxml"));
         gameStage.setTitle(title);
         gameStage.setScene(new Scene(gamePage, wideF2A, highF2A));// size of the window
