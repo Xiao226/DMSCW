@@ -48,7 +48,7 @@ public class SpaceAsteroid extends Application {
     Image imgArtWork = new Image(Objects.requireNonNull(getClass().getResource("img/artwork.png")).toExternalForm()); //Space asteroid logo in the main menu
     ImageView viewArtWork = new ImageView(imgArtWork);
     int score = 0; //Score being declared and initialized
-    Image imgShuttle = new Image(Objects.requireNonNull(getClass().getResource("img/shuttle.png")).toExternalForm());
+    Image imgShuttle = new Image(getClass().getResource("img/ship/shuttle.png").toExternalForm());
     ImageView imgviewShuttle = new ImageView(imgShuttle);
 
     //Main menu Stage
@@ -346,8 +346,8 @@ public class SpaceAsteroid extends Application {
     }
 
     public class Asteroid {
-        Image imgAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/asteroid.png")).toExternalForm());
-        Image imgBigAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/big_asteroid.png")).toExternalForm());
+        Image imgAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/asteroid/asteroid.png")).toExternalForm());
+        Image imgBigAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/asteroid/big_asteroid.png")).toExternalForm());
 
         public void CreateAsteroid() {
             asteroidCounter++;
@@ -515,11 +515,11 @@ public class SpaceAsteroid extends Application {
 
     public class Space {
         //This classes will add the background image to the stage
-        Image background = new Image(Objects.requireNonNull(getClass().getResource("img/background.png")).toExternalForm());
+        Image background = new Image(Objects.requireNonNull(getClass().getResource("img/background/background.png")).toExternalForm());
         ImageView imgbackground = new ImageView(background);
 
         public void Create() {
-            root.getChildren().add(imgbackground);
+             root.getChildren().add(imgbackground);
         }
     }
 

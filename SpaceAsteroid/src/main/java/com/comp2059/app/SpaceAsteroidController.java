@@ -44,7 +44,7 @@ public class SpaceAsteroidController {
     @FXML
     public void onClickMoveToPlay(MouseEvent mouseEvent) throws IOException {
         ruleNameStage.close();
-        gameStage.show();
+        showGamePage();
     }
     @FXML
     public void onClickMoveToEndPage(MouseEvent mouseEvent) throws IOException {
@@ -54,7 +54,7 @@ public class SpaceAsteroidController {
     @FXML
     public void onClickReMoveToGame(MouseEvent mouseEvent) throws IOException {
         endStage.close();
-        gameStage.show();
+        showGamePage();
     }
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
