@@ -6,6 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.appearanceController">
    <children>
       <ImageView fitHeight="743.0" fitWidth="1302.0" layoutX="-50.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
@@ -29,9 +31,41 @@
             <Image url="@../img/asteroid/big_asteroid.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="skin" layoutX="900.0" layoutY="480.0" prefHeight="26.0" prefWidth="230.0" promptText="Choose your ship" />
-      <ComboBox fx:id="background" layoutX="900.0" layoutY="520.0" prefHeight="26.0" prefWidth="230.0" promptText="Choose your background" />
-      <ComboBox fx:id="bigA" layoutX="900.0" layoutY="560.0" onMouseClicked="#onMouseClick" prefWidth="230.0" promptText="Choose big asteroid" />
-      <ComboBox fx:id="smallA" layoutX="900.0" layoutY="600.0" prefWidth="230.0" promptText="Choose small asteroid" />
+      <ComboBox fx:id="skin" layoutX="900.0" layoutY="480.0" prefHeight="26.0" prefWidth="230.0" promptText="Choose your ship" >
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Initial" />
+               <String fx:value="Hand Drew" />
+               <String fx:value="Light" />
+               <String fx:value="Dark" />
+               <String fx:value="Purple" />
+               <String fx:value="Blue" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <ComboBox fx:id="background" layoutX="900.0" layoutY="520.0" prefHeight="26.0" prefWidth="230.0" promptText="Choose your background" >
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Initial" />
+               <String fx:value="Cartoon" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <ComboBox fx:id="bigA" layoutX="900.0" layoutY="560.0" prefWidth="230.0" promptText="Choose big asteroid" >
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Initial" />
+               <String fx:value="F2A" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <ComboBox fx:id="smallA" layoutX="900.0" layoutY="600.0" prefWidth="230.0" promptText="Choose small asteroid" >
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Initial" />
+               <String fx:value="F2A" />
+            </FXCollections>
+         </items>
+      </ComboBox>
    </children>
 </AnchorPane>
