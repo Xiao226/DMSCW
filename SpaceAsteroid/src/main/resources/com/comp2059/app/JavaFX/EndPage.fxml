@@ -8,6 +8,7 @@
    <children>
       <Button fx:id="Play" layoutX="716.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="60.0" prefWidth="100.0" text="PLAY AGAIN" />
       <Button fx:id="Exit" layoutX="716.0" layoutY="457.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="60.0" prefWidth="100.0" text="EXIT NOW" />
-      <TextFlow layoutX="90.0" layoutY="135.0" prefHeight="407.0" prefWidth="325.0" />
+      <TextFlow fx:id="rankinglist" layoutX="91.0" layoutY="186.0" prefHeight="407.0" prefWidth="325.0" />
+      <TextFlow fx:id="result" layoutX="191.0" layoutY="67.0" prefHeight="85.0" prefWidth="530.0" />
    </children>
 </AnchorPane>

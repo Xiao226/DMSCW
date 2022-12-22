@@ -14,15 +14,13 @@ public class SpaceAsteroidApplication extends Application{
     public static Stage endStage;
     public static Stage ruleNameStage;
     public static Stage rankingStage;
-    public static Stage skinStage;
-    public static Stage backgroundStage;
+    public static Stage appearanceStage;
     public static Stage gameStage;
     public static Parent startPage;
     public static Parent endPage;
     public static Parent ruleAndNamePage;
     public static Parent rankingPage;
-    public static Parent skinPage;
-    public static Parent backgroundPage;
+    public static Parent appearancePage;
     public static Parent gamePage;
     final int wideF2A=1200;
     final int highF2A=720;
@@ -37,8 +35,7 @@ public class SpaceAsteroidApplication extends Application{
         initialGamePage("This is your first try, have fun.");
 //        "welcome back to the game again"
         initialRankingPage();
-        initialSkinPage();
-        initialBackgroundPage();
+        initialAppearancePage();
         initialEndPage();
     }
     public void initialStartPage() throws IOException {
@@ -69,25 +66,14 @@ public class SpaceAsteroidApplication extends Application{
         rankingStage.setTitle("Ranking list");
         rankingStage.setScene(new Scene(rankingPage, wideF2A, highF2A));// size of the window
     }
-    public void initialSkinPage()throws IOException {
-        skinStage = new Stage();
-        skinStage.setResizable(false);
-        skinPage=FXMLLoader.load(getClass().getResource("JavaFX/spaceShipSkin.fxml"));
-        skinStage.setTitle("Change your ship's skin here");
-        skinStage.setScene(new Scene(skinPage, wideF2A, highF2A));// size of the window
+    public void initialAppearancePage()throws IOException {
+        appearanceStage = new Stage();
+        appearanceStage.setResizable(false);
+        appearancePage=FXMLLoader.load(getClass().getResource("JavaFX/appearanceChange.fxml"));
+        appearanceStage.setTitle("Choose your favourite here");
+        appearanceStage.setScene(new Scene(appearancePage, wideF2A, highF2A));// size of the window
     }
-    public void initialBackgroundPage()throws IOException {
-<<<<<<< Updated upstream
-        backgroundStage = new Stage();
-        backgroundStage.setResizable(false);
-        backgroundPage=FXMLLoader.load(getClass().getResource("JavaFX/backgroundChange.fxml"));
-        backgroundStage.setTitle("Change your background here");
-        backgroundStage.setScene(new Scene(backgroundPage, wideF2A, highF2A));// size of the window
-=======
-        backgroundPage=FXMLLoader.load(getClass().getResource("JavaFX/appearanceChange.fxml"));
 
->>>>>>> Stashed changes
-    }
     public void initialGamePage(String title)throws IOException {
         gameStage = new Stage();gameStage.setResizable(false);
         gamePage = FXMLLoader.load(SpaceAsteroidApplication.class.getResource("JavaFX/gamePage.fxml"));

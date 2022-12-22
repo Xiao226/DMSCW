@@ -31,16 +31,10 @@ public class SpaceAsteroidController {
         ruleNameStage.show();
     }
     @FXML
-    public void onClickMoveToSkinChange(MouseEvent mouseEvent) throws IOException {
+    public void onClickMoveToAppearanceChange(MouseEvent mouseEvent) throws IOException {
         startStage.close();
-        stage=skinStage;
-        skinStage.show();
-    }
-    @FXML
-    public void onClickMoveToBackgroundChange(MouseEvent mouseEvent) throws IOException {
-        startStage.close();
-        stage=backgroundStage;
-        backgroundStage.show();
+        stage=appearanceStage;
+        appearanceStage.show();
     }
     @FXML
     public void onClickMoveToRanking(MouseEvent mouseEvent) throws IOException {

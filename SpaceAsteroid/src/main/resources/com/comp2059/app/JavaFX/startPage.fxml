@@ -4,24 +4,31 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.SpaceAsteroidController">
    <children>
-      <ImageView fx:id="ImageShow" fitHeight="452.0" fitWidth="733.0" layoutX="64.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ImageShow" fitHeight="508.0" fitWidth="712.0" layoutX="249.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/artwork.png" />
          </image></ImageView>
-      <Button fx:id="Play" layoutX="899.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToNameAndRule" prefHeight="81.0" prefWidth="124.0" text="PLAY">
+      <Button fx:id="Play" layoutX="982.0" layoutY="562.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToNameAndRule" prefHeight="81.0" prefWidth="124.0" text="PLAY">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button fx:id="Exit" layoutX="899.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="81.0" prefWidth="124.0" text="EXIT">
+      <Button fx:id="Exit" layoutX="47.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="81.0" prefWidth="124.0" text="EXIT">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button fx:id="skin" layoutX="254.0" layoutY="517.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToSkinChange" prefHeight="69.0" prefWidth="114.0" text="Ship Skin" />
-      <Button fx:id="background" layoutX="520.0" layoutY="517.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToBackgroundChange" prefHeight="69.0" prefWidth="114.0" text="Background" />
-      <Button fx:id="ranking" layoutX="724.0" layoutY="517.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToRanking" prefHeight="69.0" prefWidth="114.0" text="Ranking" />
+      <Button fx:id="appearance" layoutX="549.0" layoutY="545.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToBackgroundChange" prefHeight="137.0" prefWidth="296.0" text="Appearance">
+         <font>
+            <Font size="43.0" />
+         </font></Button>
+      <Button fx:id="ranking" layoutX="218.0" layoutY="542.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToRanking" prefHeight="141.0" prefWidth="250.0" text="Ranking">
+         <font>
+            <Font size="32.0" />
+         </font></Button>
+      <Polygon fill="DODGERBLUE" layoutX="116.0" layoutY="165.0" points="-47.738975524902344, 40.000030517578125, 36.766265869140625, 40.000030517578125, -8.303192138671875, -24.440032958984375" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
