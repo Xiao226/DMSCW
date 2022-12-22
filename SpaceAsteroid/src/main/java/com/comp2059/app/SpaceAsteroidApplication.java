@@ -27,28 +27,18 @@ public class SpaceAsteroidApplication extends Application{
     final int highF2A=720;
 
     public void start(Stage primaryStage) throws Exception{
-        System.out.println("start");
         initialPages();
-        System.out.println("start finish");
         startStage.show();
     }
     public void initialPages() throws IOException {
-        System.out.println("initial stage begin");
         initialStartPage();
-        System.out.println("initial start succ");
         initialRuleAndNamePage();
-        System.out.println("initial rue succ");
         initialGamePage("This is your first try, have fun.");
 //        "welcome back to the game again"
-        System.out.println("initial game succ");
         initialRankingPage();
-        System.out.println("initial rank succ");
         initialSkinPage();
-        System.out.println("initial skin succ");
         initialBackgroundPage();
-        System.out.println("initial back succ");
         initialEndPage();
-        System.out.println("initial end succ");
     }
     public void initialStartPage() throws IOException {
         startStage = new Stage();
