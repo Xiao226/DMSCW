@@ -77,11 +77,16 @@ public class SpaceAsteroidApplication extends Application{
         skinStage.setScene(new Scene(skinPage, wideF2A, highF2A));// size of the window
     }
     public void initialBackgroundPage()throws IOException {
+<<<<<<< Updated upstream
         backgroundStage = new Stage();
         backgroundStage.setResizable(false);
         backgroundPage=FXMLLoader.load(getClass().getResource("JavaFX/backgroundChange.fxml"));
         backgroundStage.setTitle("Change your background here");
         backgroundStage.setScene(new Scene(backgroundPage, wideF2A, highF2A));// size of the window
+=======
+        backgroundPage=FXMLLoader.load(getClass().getResource("JavaFX/appearanceChange.fxml"));
+
+>>>>>>> Stashed changes
     }
     public void initialGamePage(String title)throws IOException {
         gameStage = new Stage();gameStage.setResizable(false);
