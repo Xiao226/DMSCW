@@ -22,7 +22,8 @@ import java.util.Objects;
 import static com.comp2059.app.SpaceAsteroidApplication.*;
 
 public class SpaceAsteroidController {
-    private Stage stage=new Stage();
+    private Stage stage;
+
     @FXML
     public void onClickMoveToNameAndRule(MouseEvent mouseEvent) throws IOException {
         startStage.close();
