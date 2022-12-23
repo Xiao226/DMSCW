@@ -127,6 +127,11 @@ public class SpaceAsteroidApplication extends Application{
 
 
     public static void showGamePage()throws IOException{
+        goUp = false;
+        goDown = false;
+        goLeft = false;
+        goRight = false;
+        shoot = false;
         score = 0;
         gameOver = false;
         asteroidCounter = 0;
@@ -291,25 +296,31 @@ public class SpaceAsteroidApplication extends Application{
                         root.getChildren().add(imgviewExplosion);
                         root.getChildren().remove(rocket.get(i));
                         rocket.remove(i);
-                        gameStage.close();
-                        endStage.show();
-//                        Text txtGameOver = new Text(500, 360, "Gameover!");
-//                        txtGameOver.setFill(Color.RED);
-//                        Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
-//                        txtGameOver.setFont(font3);
-//                        root.getChildren().add(txtGameOver);
-//                        Button btnQuit = new Button("Quit");
-//                        btnQuit.setScaleX(6);
-//                        btnQuit.setScaleY(4);
-//                        btnQuit.setTextFill(Color.YELLOW);
-//                        btnQuit.setTranslateX(1000);
-//                        btnQuit.setTranslateY(600);
-//                        btnQuit.setStyle("-fx-background-color: red;");
-//                        root.getChildren().add(btnQuit);
-//                        btnQuit.setOnAction(e -> Platform.exit());
+
+                        Text txtGameOver = new Text(500, 360, "Gameover!");
+                        txtGameOver.setFill(Color.RED);
+                        Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
+                        txtGameOver.setFont(font3);
+                        root.getChildren().add(txtGameOver);
+                        Button btnQuit = new Button("Quit");
+                        btnQuit.setScaleX(6);
+                        btnQuit.setScaleY(4);
+                        btnQuit.setTextFill(Color.YELLOW);
+                        btnQuit.setTranslateX(1000);
+                        btnQuit.setTranslateY(600);
+                        btnQuit.setStyle("-fx-background-color: red;");
+                        root.getChildren().add(btnQuit);
+                        btnQuit.setOnAction(e ->
+                                showTheEndPage()
+                        );
                     }
                 }
             }
+        }
+
+        public void showTheEndPage(){
+            gameStage.close();
+            endStage.show();
         }
     }
 
