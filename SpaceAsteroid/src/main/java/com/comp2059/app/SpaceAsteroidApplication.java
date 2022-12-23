@@ -28,6 +28,8 @@ import java.util.Objects;
 
 import static com.comp2059.app.appearanceController.*;
 
+import static com.comp2059.app.appearanceController.*;
+
 public class SpaceAsteroidApplication extends Application{
     public static Stage startStage;
     public static Stage endStage;
@@ -126,7 +128,7 @@ public class SpaceAsteroidApplication extends Application{
 //    }
 
 
-    public static void showGamePage()throws IOException{
+    public static void showGamePage() throws IOException{
         goUp = false;
         goDown = false;
         goLeft = false;
@@ -147,11 +149,9 @@ public class SpaceAsteroidApplication extends Application{
         Font font2 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 25);
         txtscore.setFont(font2);
         gameStage.setTitle("Space Asteroids");
-        imgShuttle = new Image(SpaceAsteroidApplication.class.getResource("img/ship/shuttle.png").toExternalForm());
-        //接口一
-        imgviewShuttle = new ImageView(imgShuttle);
+        imgviewShuttle = new ImageView(shipSkinFinal);
         rocket.add(imgviewShuttle);
-        Space space = new Space(); // 接口二
+        Space space = new Space();
         space.Create();
 
         imgviewShuttle.setLayoutX(570);
@@ -159,6 +159,7 @@ public class SpaceAsteroidApplication extends Application{
 
         root.getChildren().add(imgviewShuttle);
         root.getChildren().add(txtscore);
+
         Scene scene = new Scene(root, 1200, 720, Color.BLACK);
         gameStage.setScene(scene);
         gameStage.setResizable(false);
@@ -200,7 +201,8 @@ public class SpaceAsteroidApplication extends Application{
                 }
             }
         });
-        AnimationTimer timer = new AnimationTimer() {
+        AnimationTimer timer;
+        timer = new AnimationTimer() {
             double delta = 4;
 
             @Override
@@ -231,7 +233,6 @@ public class SpaceAsteroidApplication extends Application{
                     if (goUp) currY -= delta;
                     currX = getCurrX(currX);
                 }
-
 
                 imgviewShuttle.relocate(currX, currY);
                 Player shuttle = new Player();
@@ -325,8 +326,8 @@ public class SpaceAsteroidApplication extends Application{
     }
 
     public static class Asteroid {
-        Image imgAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/asteroid/asteroid.png")).toExternalForm());
-        Image imgBigAsteroid = new Image(Objects.requireNonNull(getClass().getResource("img/asteroid/big_asteroid.png")).toExternalForm());
+        Image imgAsteroid = smallAFinal;
+        Image imgBigAsteroid = bigAFinal;
 
         public void CreateAsteroid() {
             asteroidCounter++;
@@ -494,7 +495,7 @@ public class SpaceAsteroidApplication extends Application{
 
     public static class Space {
         //This classes will add the background image to the stage
-        Image background = new Image(Objects.requireNonNull(getClass().getResource("img/background/background.png")).toExternalForm());
+        Image background = backgroundFinal;
         ImageView imgbackground = new ImageView(background);
 
         public void Create() {
