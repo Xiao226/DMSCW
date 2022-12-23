@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.comp2059.app.appearanceController.*;
+import static com.comp2059.app.informationStore.*;
 
 
 public class SpaceAsteroidApplication extends Application{
@@ -165,6 +166,7 @@ public class SpaceAsteroidApplication extends Application{
                         Rectangle rect2 = new Rectangle();
                         rect2.setWidth(5.0f);
                         rect2.setHeight(10.0f);
+                        //接口
                         rect2.setFill(Color.RED);
                         rect2.relocate(imgviewShuttle.getLayoutX() + 45, imgviewShuttle.getLayoutY() - 5);
                         weapons.add(rect2);
@@ -267,7 +269,7 @@ public class SpaceAsteroidApplication extends Application{
         gameOver = false;
         asteroidCounter = 0;
         asteroidCounter2 = 0;
-        score = 0;
+        if (difficultLevel){ score = 0; }
         weapons = new ArrayList<>();
         root = new Group();
         rocket = new ArrayList<>();
@@ -301,7 +303,7 @@ public class SpaceAsteroidApplication extends Application{
                         root.getChildren().add(imgviewExplosion);
                         root.getChildren().remove(rocket.get(i));
                         rocket.remove(i);
-                        timer.stop();
+                        if (difficultLevel){timer.stop();}
                         Text txtGameOver = new Text(500, 360, "Gameover!");
                         txtGameOver.setFill(Color.RED);
                         Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);

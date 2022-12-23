@@ -3,7 +3,7 @@ package com.comp2059.app;
 import javafx.scene.control.Label;
 
 public record informationStore() {
-    public static boolean difficultLevel = true;
+    public static boolean difficultLevel = false;
     public static String rule =
             "Here are the rules of the game:\n" +
             "You control a space shuttle. There will generate some asteroids in your path." +

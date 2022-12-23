@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Slider;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
-
+import static com.comp2059.app.informationStore.*;
 import static com.comp2059.app.SpaceAsteroidApplication.*;
 
 public class SpaceAsteroidController {
@@ -29,6 +30,15 @@ public class SpaceAsteroidController {
         startStage.close();
         stage=ruleNameStage;
         ruleNameStage.show();
+    }
+    @FXML
+    ComboBox<String> module114514;
+    @FXML
+    public void onMouseClickModel(){
+        String sellect = module114514.getSelectionModel().getSelectedItem();
+        if (sellect.equals("Normal")){
+            difficultLevel=true;
+        }else difficultLevel=false;
     }
     @FXML
     public void onClickMoveToAppearanceChange(MouseEvent mouseEvent) throws IOException {
