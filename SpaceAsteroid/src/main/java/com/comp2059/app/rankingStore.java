@@ -3,12 +3,12 @@ package com.comp2059.app;
 import java.io.*;
 
 import static com.comp2059.app.informationStore.fileName;
+import static com.comp2059.app.informationStore.rankingList;
 
 public class rankingStore {
 //    store structure
 //    player-name destroyed-asteroid-number beaten-boss-number live-time total-score
-    public static String[][] getInformation(){
-        String [][] result = new String[20][5];
+    public static void getInformation(){
         boolean initialNeed=false;
         try {
             File file = new File(fileName);
@@ -19,7 +19,7 @@ public class rankingStore {
             for (int i =0;i<20;i++){
                 temp= br.readLine();
                 if (temp == null)continue;
-                result[i]=temp.split(" ");
+                rankingList[i]=temp.split(" ");
             }
             br.close();
             fr.close();
@@ -33,18 +33,17 @@ public class rankingStore {
         }
         // no data create initial data
         if (initialNeed){
-            result[1]= new String[]{"Fish","1:30", "20","0","66"};
-            result[0]= new String[]{"Smile","3:50", "233","4","233"};
+            rankingList[1]= new String[]{"Fish","1:30", "20","0","66"};
+            rankingList[0]= new String[]{"Smile","3:50", "233","4","233"};
         }
-        return result;
     }
-    public static void writeTheRankingFile(String[][] result){
+    public static void writeTheRankingFile(){
         try {
             File file = new File(fileName);
             if (!file.exists()) file.createNewFile();
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
-            for (String[]a:result){
+            for (String[]a:rankingList){
                 if (a == null)continue;
                 for (String b:a){
                     if (b==null)continue;
@@ -59,4 +58,12 @@ public class rankingStore {
             System.out.println(e);
         }
     }
+//    public static void addresult(String player_name,String destroyed_asteroid_number,String beaten_boss_number,String live_time,String total_score){
+//        String[]temp;
+//        for (int i=0;i<20;i++) {
+//            for (int j=i;j<20){
+//
+//            }
+//        }
+//    }
 }

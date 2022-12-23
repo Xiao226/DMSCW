@@ -28,7 +28,6 @@ import java.util.Objects;
 
 import static com.comp2059.app.appearanceController.*;
 
-import static com.comp2059.app.appearanceController.*;
 
 public class SpaceAsteroidApplication extends Application{
     public static Stage startStage;
@@ -129,21 +128,7 @@ public class SpaceAsteroidApplication extends Application{
 
 
     public static void showGamePage() throws IOException{
-        goUp = false;
-        goDown = false;
-        goLeft = false;
-        goRight = false;
-        shoot = false;
-        score = 0;
-        gameOver = false;
-        asteroidCounter = 0;
-        asteroidCounter2 = 0;
-        weapons = new ArrayList<>();
-        root = new Group();
-        rocket = new ArrayList<>();
-        bigAsteroid = new ArrayList<>();
-        asteroid = new ArrayList<>();
-        gameStage = new Stage();
+        extracted();
         txtscore = new Text(1000, 50, "Score: " + score);
         txtscore.setFill(Color.WHITE);
         Font font2 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 25);
@@ -270,6 +255,24 @@ public class SpaceAsteroidApplication extends Application{
             }
         };
         timer.start();
+    }
+
+    private static void extracted() {
+        goUp = false;
+        goDown = false;
+        goLeft = false;
+        goRight = false;
+        shoot = false;
+        score = 0;
+        gameOver = false;
+        asteroidCounter = 0;
+        asteroidCounter2 = 0;
+        weapons = new ArrayList<>();
+        root = new Group();
+        rocket = new ArrayList<>();
+        bigAsteroid = new ArrayList<>();
+        asteroid = new ArrayList<>();
+        gameStage = new Stage();
     }
 
     //Inner Classes start here

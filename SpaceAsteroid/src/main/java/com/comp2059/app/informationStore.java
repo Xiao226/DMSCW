@@ -19,4 +19,5 @@ public record informationStore() {
                     "You can choose to change your ship's skin by clicking the change skin bottom.\n" +
                     "You can choose to change your background by clicking the change background bottom.\n"+
                     "If everything is ready you can click the play bottom for the last preparatory work before start the game.\n ";
+    public static String[][]rankingList=new String[20][5];
 }
