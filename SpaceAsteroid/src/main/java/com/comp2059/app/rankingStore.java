@@ -58,12 +58,31 @@ public class rankingStore {
             System.out.println(e);
         }
     }
-//    public static void addresult(String player_name,String destroyed_asteroid_number,String beaten_boss_number,String live_time,String total_score){
-//        String[]temp;
-//        for (int i=0;i<20;i++) {
-//            for (int j=i;j<20){
-//
-//            }
-//        }
-//    }
+    public static void addresult(String player_name,String destroyed_asteroid_number,String beaten_boss_number,String live_time,String total_score){
+        for (int i=0;i<20;i++) {
+            if (rankingList[i] == null){
+                insertLine(i,player_name,destroyed_asteroid_number,beaten_boss_number,live_time,total_score);
+                return;
+            }
+            if (Integer.parseInt(rankingList[i][4])>Integer.parseInt(total_score)){
+                moveAfterWard(i);
+                insertLine(i,player_name,destroyed_asteroid_number,beaten_boss_number,live_time,total_score);
+                return;
+            }
+        }
+    }
+    public static void insertLine(int position, String player_name, String destroyed_asteroid_number, String beaten_boss_number, String live_time, String total_score){
+        rankingList[position][0]=player_name;
+        rankingList[position][1]=destroyed_asteroid_number;
+        rankingList[position][2]=beaten_boss_number;
+        rankingList[position][3]=live_time;
+        rankingList[position][4]=total_score;
+    }
+    public static void moveAfterWard(int start_position){
+        String [][]temp=rankingList;
+        for (int i=start_position;i<20;i++){
+            if (rankingList[i+1]==null)return;
+            rankingList[i+1]=temp[i];
+        }
+    }
 }

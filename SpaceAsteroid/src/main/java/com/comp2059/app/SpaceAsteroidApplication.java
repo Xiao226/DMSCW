@@ -50,6 +50,7 @@ public class SpaceAsteroidApplication extends Application{
     static boolean goLeft;
     static boolean goRight;
     static boolean shoot;
+    static AnimationTimer timer;
     static ArrayList<Node> weapons = new ArrayList<>(); //This is an array list that stores the laser beams that are fired
     static ArrayList<Node> asteroid = new ArrayList<>();// This array list is used to store spawned  small asteroids
     static ArrayList<Node> bigAsteroid = new ArrayList<>(); // This array list is used to store spawned  big asteroids
@@ -64,7 +65,7 @@ public class SpaceAsteroidApplication extends Application{
     static int modifier = 150;
     static boolean gameOver;
     static Text txtscore;
-    static int score; //Score being declared and initialized
+    static int score = 0; //Score being declared and initialized
     static Image imgShuttle;
     static ImageView imgviewShuttle;
 
@@ -186,7 +187,7 @@ public class SpaceAsteroidApplication extends Application{
                 }
             }
         });
-        AnimationTimer timer;
+
         timer = new AnimationTimer() {
             double delta = 4;
 
@@ -263,10 +264,10 @@ public class SpaceAsteroidApplication extends Application{
         goLeft = false;
         goRight = false;
         shoot = false;
-        score = 0;
         gameOver = false;
         asteroidCounter = 0;
         asteroidCounter2 = 0;
+        score = 0;
         weapons = new ArrayList<>();
         root = new Group();
         rocket = new ArrayList<>();
@@ -300,7 +301,7 @@ public class SpaceAsteroidApplication extends Application{
                         root.getChildren().add(imgviewExplosion);
                         root.getChildren().remove(rocket.get(i));
                         rocket.remove(i);
-
+                        timer.stop();
                         Text txtGameOver = new Text(500, 360, "Gameover!");
                         txtGameOver.setFill(Color.RED);
                         Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
