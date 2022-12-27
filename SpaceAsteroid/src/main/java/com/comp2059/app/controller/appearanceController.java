@@ -1,22 +1,14 @@
-package com.comp2059.app;
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+package com.comp2059.app.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.Slider;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+
+
+import java.awt.*;
 import java.awt.event.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,10 +16,10 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static com.comp2059.app.SpaceAsteroidApplication.*;
+import static com.comp2059.app.informationStore.beamColor;
 
 public class appearanceController{
     public static Image shipSkinFinal;
-
     static {
         try {
             shipSkinFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/blue.png"));
@@ -35,9 +27,7 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-
     public static Image backgroundFinal;
-
     static {
         try {
             backgroundFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/background.png"));
@@ -45,9 +35,7 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-
     public static Image bigAFinal;
-
     static {
         try {
             bigAFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/big_asteroid.png"));
@@ -55,9 +43,7 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-
     public static Image smallAFinal;
-
     static {
         try {
             smallAFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/asteroid.png"));
@@ -65,11 +51,20 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-
+    public static Image bossRain;
+    static {
+        try {
+            bossRain = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/boss/boss.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     ComboBox <String> skin;
     @FXML
     ComboBox <String> background;
+    @FXML
+    ComboBox <String> color;
     @FXML
     ComboBox <String> smallA;
     @FXML
@@ -82,6 +77,8 @@ public class appearanceController{
     ImageView backG;
     @FXML
     ImageView ship;
+    @FXML
+    Rectangle beam;
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
         appearanceStage.close();
@@ -128,6 +125,21 @@ public class appearanceController{
         }
         backG.setImage(select);
         backgroundFinal=select;
+    }
+    public void onMouseClickColor(){
+        String sellect=color.getSelectionModel().getSelectedItem();
+        switch (sellect) {
+            case "BLUE" -> beamColor = Color.BLUE;
+            case "BLACK" -> beamColor = Color.BLACK;
+            case "GREY" -> beamColor = Color.GREY;
+            case "GREEN" -> beamColor = Color.GREEN;
+            case "GOLD" -> beamColor = Color.GOLD;
+            case "YELLOW" -> beamColor = Color.YELLOW;
+            case "TOMATO" -> beamColor = Color.TOMATO;
+            case "WHITE" -> beamColor = Color.WHITE;
+            default -> beamColor = Color.PINK;
+        }
+        beam.setFill(beamColor);
     }
 
     @FXML

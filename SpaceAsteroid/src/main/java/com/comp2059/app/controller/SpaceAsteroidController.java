@@ -1,29 +1,20 @@
-package com.comp2059.app;
+package com.comp2059.app.controller;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.Slider;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
+
+import static com.comp2059.app.gameStageF2A.showGamePage;
 import static com.comp2059.app.informationStore.*;
 import static com.comp2059.app.SpaceAsteroidApplication.*;
 
 public class SpaceAsteroidController {
-    private Stage stage;
+    public static Stage stage;
 
     @FXML
     public void onClickMoveToNameAndRule(MouseEvent mouseEvent) throws IOException {
@@ -51,11 +42,7 @@ public class SpaceAsteroidController {
         startStage.close();
         rankingStage.show();
     }
-    @FXML
-    public void onClickMoveToPlay(MouseEvent mouseEvent) throws IOException {
-        ruleNameStage.close();
-        showGamePage();
-    }
+
     @FXML
     public void onClickMoveToEndPage(MouseEvent mouseEvent) throws IOException {
         gameStage.close();
@@ -64,7 +51,10 @@ public class SpaceAsteroidController {
     @FXML
     public void onClickReMoveToGame(MouseEvent mouseEvent) throws IOException {
         endStage.close();
+        lifeUsed+=1;
+        gamePageTitle="This is your "+(lifeUsed+1)+" try. Enjoy it.";
         showGamePage();
+//        start();
     }
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
@@ -72,6 +62,7 @@ public class SpaceAsteroidController {
         rankingStage.close();
         startStage.show();
     }
+
     @FXML
     public void shotDown(MouseEvent mouseEvent) throws IOException{
         Platform.exit();

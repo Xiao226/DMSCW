@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.rankingController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controller.rankingController">
    <children>
-      <TextArea layoutX="25.0" layoutY="26.0" prefHeight="672.0" prefWidth="998.0" text="Name, Live Time, Destroyed Asreroid Number, Beaten Boss Number, Score&#10;Smile,3:50,233,4,233&#10;Fish,1:30,20,0,66">
+      <TextArea fx:id="ranking" layoutX="25.0" layoutY="26.0" prefHeight="672.0" prefWidth="998.0" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score&#10;Smile,3:50,233,4,233&#10;Fish,1:30,20,0,66&#10;">
          <font>
             <Font name="BM JUA OTF" size="30.0" />
          </font></TextArea>

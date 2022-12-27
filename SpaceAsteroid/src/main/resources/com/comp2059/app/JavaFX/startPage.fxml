@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.SpaceAsteroidController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controller.SpaceAsteroidController">
    <children>
       <ImageView fx:id="ImageShow" fitHeight="508.0" fitWidth="712.0" layoutX="249.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -21,6 +21,7 @@ public class rankingStore {
                 if (temp == null)continue;
                 rankingList[i]=temp.split(" ");
             }
+            if (rankingList[0][0]==null)initialNeed=true;
             br.close();
             fr.close();
         } catch (FileNotFoundException e) {
@@ -58,31 +59,49 @@ public class rankingStore {
             System.out.println(e);
         }
     }
-    public static void addresult(String player_name,String destroyed_asteroid_number,String beaten_boss_number,String live_time,String total_score){
+    public static void addresult(String player_name,int destroyed_asteroid_number,int beaten_boss_number,String live_time,int total_score){
         for (int i=0;i<20;i++) {
             if (rankingList[i] == null){
                 insertLine(i,player_name,destroyed_asteroid_number,beaten_boss_number,live_time,total_score);
                 return;
             }
-            if (Integer.parseInt(rankingList[i][4])>Integer.parseInt(total_score)){
+            if (Integer.parseInt(rankingList[i][4])>total_score){
                 moveAfterWard(i);
+                System.out.println(preparePrint());
                 insertLine(i,player_name,destroyed_asteroid_number,beaten_boss_number,live_time,total_score);
                 return;
             }
         }
     }
-    public static void insertLine(int position, String player_name, String destroyed_asteroid_number, String beaten_boss_number, String live_time, String total_score){
+    public static void insertLine(int position, String player_name, int destroyed_asteroid_number, int beaten_boss_number, String live_time, int total_score){
         rankingList[position][0]=player_name;
-        rankingList[position][1]=destroyed_asteroid_number;
-        rankingList[position][2]=beaten_boss_number;
+        rankingList[position][1]= String.valueOf(destroyed_asteroid_number);
+        rankingList[position][2]= String.valueOf(beaten_boss_number);
         rankingList[position][3]=live_time;
-        rankingList[position][4]=total_score;
+        rankingList[position][4]= String.valueOf(total_score);
     }
     public static void moveAfterWard(int start_position){
-        String [][]temp=rankingList;
-        for (int i=start_position;i<20;i++){
-            if (rankingList[i+1]==null)return;
+        String [][]temp=rankingList.clone();
+        for (int i=start_position;i<19;i++){
+            if(temp[i][0]==null){
+                System.out.println("end point "+i);
+                return;
+            }
             rankingList[i+1]=temp[i];
         }
+    }
+    public static String preparePrint(){
+        String result="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score\n";
+        for (String[]a:rankingList){
+            if (a==null)return result;
+            for (String b :a){
+                if (b==null)break;
+                result=result+b+" ";
+            }
+            result=result+"\n";
+        }
+
+
+        return result;
     }
 }
