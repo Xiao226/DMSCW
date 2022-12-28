@@ -12,6 +12,7 @@ import java.io.IOException;
 import static com.comp2059.app.gameStageF2A.showGamePage;
 import static com.comp2059.app.informationStore.*;
 import static com.comp2059.app.SpaceAsteroidApplication.*;
+import static com.comp2059.app.rankingStore.writeTheRankingFile;
 
 public class SpaceAsteroidController {
     public static Stage stage;
@@ -64,8 +65,11 @@ public class SpaceAsteroidController {
     }
 
     @FXML
-    public void shotDown(MouseEvent mouseEvent) throws IOException{
+    public void shotDown(MouseEvent mouseEvent) {
         Platform.exit();
     }
-
+    public void showTheEndPage(){
+        gameStage.close();
+        endStage.show();
+    }
 }

@@ -61,8 +61,6 @@ public class Player {
                     btnQuit.setStyle("-fx-background-color: red;");
                     timeEndGame=new Date();
                     // initial the rank
-                    addresult(userName,destroyedAsteroidNumber,destroyedBossNumber,timeCalculate(timeBeginGame,timeEndGame), score);
-                    System.out.println(preparePrint());
                     root.getChildren().add(btnQuit);
                     btnQuit.setOnAction(e ->
                             showTheEndPage()

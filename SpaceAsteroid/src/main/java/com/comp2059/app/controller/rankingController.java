@@ -8,15 +8,25 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 import static com.comp2059.app.SpaceAsteroidApplication.*;
+import static com.comp2059.app.gameStageF2A.score;
 import static com.comp2059.app.gameStageF2A.showGamePage;
 import static com.comp2059.app.informationStore.*;
-import static com.comp2059.app.rankingStore.preparePrint;
+import static com.comp2059.app.rankingStore.*;
 
 import com.comp2059.app.rankingStore.*;
 
 public class rankingController {
     @FXML
     TextArea ranking=new TextArea();
+    @FXML
+    public void onClickInsert(){
+        addresult(userName,destroyedAsteroidNumber,destroyedBossNumber,timeCalculate(timeBeginGame,timeEndGame), score);
+        ranking.setText(preparePrint());
+    }
+    @FXML
+    public void onClickRefresh(){
+        ranking.setText(preparePrint());
+    }
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
         ruleNameStage.close();
@@ -25,6 +35,8 @@ public class rankingController {
     }
     @FXML
     public void shotDown(MouseEvent mouseEvent) throws IOException{
+        System.out.println("exit");
+        writeTheRankingFile();
         Platform.exit();
     }
     @FXML
@@ -35,9 +47,6 @@ public class rankingController {
         showGamePage();
 //        start();
     }
-    public void refreshTheList(){
-        System.out.println("QAQ?");
-        ranking.appendText(userName+"this is test");
-    }
+
 
 }

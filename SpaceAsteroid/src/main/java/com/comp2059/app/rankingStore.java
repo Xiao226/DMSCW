@@ -34,8 +34,9 @@ public class rankingStore {
         }
         // no data create initial data
         if (initialNeed){
-            rankingList[1]= new String[]{"Fish","1:30", "20","0","66"};
-            rankingList[0]= new String[]{"Smile","3:50", "233","4","233"};
+            rankingList[2]= new String[]{"Admin", "0","0","0:0","0"};
+            rankingList[1]= new String[]{"Fish", "20","0","1:30","60"};
+            rankingList[0]= new String[]{"Smile", "233","4","3:50","233"};
         }
     }
     public static void writeTheRankingFile(){
@@ -60,38 +61,49 @@ public class rankingStore {
         }
     }
     public static void addresult(String player_name,int destroyed_asteroid_number,int beaten_boss_number,String live_time,int total_score){
-        for (int i=0;i<20;i++) {
-            if (rankingList[i] == null){
-                insertLine(i,player_name,destroyed_asteroid_number,beaten_boss_number,live_time,total_score);
+        String[]newest = new String[5];
+        newest[0]=player_name;
+        newest[1]= String.valueOf(destroyed_asteroid_number);
+        newest[2]= String.valueOf(beaten_boss_number);
+        newest[3]=live_time;
+        newest[4]= String.valueOf(total_score);
+        for (int i =0;i<20;i++){
+            if (rankingList[i][0]==null){
+                rankingList[i]=newest;
                 return;
             }
-            if (Integer.parseInt(rankingList[i][4])>total_score){
-                moveAfterWard(i);
-                System.out.println(preparePrint());
-                insertLine(i,player_name,destroyed_asteroid_number,beaten_boss_number,live_time,total_score);
+            if (Integer.parseInt(rankingList[i][4])<total_score){
+                if (i!=19) moveBackOneLine(i);
+                rankingList[i]=newest;
                 return;
+            }else if (Integer.parseInt(rankingList[i][4])==total_score){
+                if (compareTime(live_time,rankingList[i][3])){
+                    if (i!=19) moveBackOneLine(i);
+                    rankingList[i]=newest;
+                    return;
+                }
+
             }
+
         }
     }
-    public static void insertLine(int position, String player_name, int destroyed_asteroid_number, int beaten_boss_number, String live_time, int total_score){
-        rankingList[position][0]=player_name;
-        rankingList[position][1]= String.valueOf(destroyed_asteroid_number);
-        rankingList[position][2]= String.valueOf(beaten_boss_number);
-        rankingList[position][3]=live_time;
-        rankingList[position][4]= String.valueOf(total_score);
-    }
-    public static void moveAfterWard(int start_position){
-        String [][]temp=rankingList.clone();
-        for (int i=start_position;i<19;i++){
-            if(temp[i][0]==null){
-                System.out.println("end point "+i);
-                return;
+    public static void moveBackOneLine(int start_position){
+        int max_len=0;
+        for (int i=0;i<20;i++){
+            if (rankingList[i]==null){
+                break;
             }
-            rankingList[i+1]=temp[i];
+            System.out.println(rankingList[i][0]);
+            max_len=i;
+
+        }
+        for (int j = max_len+1;j>start_position;j--){
+            rankingList[j]=rankingList[j-1];
         }
     }
+
     public static String preparePrint(){
-        String result="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score\n";
+        String result="Name, Destroyed Asteroid Number, Beaten Boss Number, Live Time, Score\n";
         for (String[]a:rankingList){
             if (a==null)return result;
             for (String b :a){
@@ -100,8 +112,16 @@ public class rankingStore {
             }
             result=result+"\n";
         }
-
-
         return result;
+    }
+    public static boolean compareTime(String in,String old){
+        String [] inList= in.split(":");
+        String[]oldList=old.split(":");
+        if (Integer.parseInt(inList[0])>Integer.parseInt(oldList[0])){
+            return true;
+        }else if (Integer.parseInt(inList[0])==Integer.parseInt(oldList[0])){
+            if (Integer.parseInt(inList[1])>Integer.parseInt(oldList[1]))return true;
+            else return false;
+        }else return false;
     }
 }
