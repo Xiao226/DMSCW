@@ -17,10 +17,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static com.comp2059.app.SpaceAsteroidApplication.*;
+import static com.comp2059.app.SpaceAsteroidApplication.gamePage;
+import static com.comp2059.app.SpaceAsteroidApplication.gameStage;
 import static com.comp2059.app.informationStore.*;
 
 public class GamePageController {
+    static final double W = 1400;
+    static final double H = 820;
     @FXML
     static
     Text scoretxt;
@@ -37,9 +40,6 @@ public class GamePageController {
     static ArrayList<Node> asteroid = new ArrayList<>();// This array list is used to store spawned  small asteroids
     static ArrayList<Node> bigAsteroid = new ArrayList<>(); // This array list is used to store spawned  big asteroids
     static ArrayList<Node> rocket = new ArrayList<>();
-    final double L = 800;
-    static final double W = 1400;
-    static final double H = 820;
     static int dShoot = 10;
     static Group root = new Group();
     static int asteroidCounter;
@@ -49,14 +49,16 @@ public class GamePageController {
     static Text txtscore;
     static int score = 0; //Score being declared and initialized
     static ImageView imgviewShuttle;
+    final double L = 800;
+
     public static void start() throws IOException {
         initialGame();
-        scoretxt=txtscore;
-        shuttle=imgviewShuttle;
+        scoretxt = txtscore;
+        shuttle = imgviewShuttle;
         gamePage = FXMLLoader.load(gameStageF2A.class.getResource("JavaFX/gamePage.fxml"));
         gameStage.setTitle(gamePageTitle);
         rocket.add(shuttle);
-        Space space=new Space();
+        Space space = new Space();
         space.Create();
         Scene scene = new Scene(gamePage, 1200, 720, Color.BLACK);
         gameStage.setResizable(false);
@@ -102,15 +104,14 @@ public class GamePageController {
         });
 
         timer = new AnimationTimer() {
-            double delta = 4;
+            final double delta = 4;
 
             @Override
             public void handle(long arg0) {
                 double currX = imgviewShuttle.getLayoutX();
                 double currY = imgviewShuttle.getLayoutY();
-                if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX()>0
-                        && imgviewShuttle.getLayoutY() < 660  && imgviewShuttle.getLayoutY() > 0)
-                {
+                if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX() > 0
+                        && imgviewShuttle.getLayoutY() < 660 && imgviewShuttle.getLayoutY() > 0) {
                     if (goUp) currY -= delta;
                     if (goDown) currY += delta;
                     if (goLeft) currX -= delta;
@@ -119,16 +120,13 @@ public class GamePageController {
                 if (imgviewShuttle.getLayoutX() >= 1120) {
                     if (goLeft) currX -= delta;
                     currY = getCurrY(currY);
-                }
-                else if (imgviewShuttle.getLayoutX() <= 0) {
+                } else if (imgviewShuttle.getLayoutX() <= 0) {
                     if (goRight) currX += delta;
                     currY = getCurrY(currY);
-                }
-                else if (imgviewShuttle.getLayoutY() <= 0) {
+                } else if (imgviewShuttle.getLayoutY() <= 0) {
                     if (goDown) currY += delta;
                     currX = getCurrX(currX);
-                }
-                else if (imgviewShuttle.getLayoutY() >= 660) {
+                } else if (imgviewShuttle.getLayoutY() >= 660) {
                     if (goUp) currY -= delta;
                     currX = getCurrX(currX);
                 }
@@ -145,24 +143,24 @@ public class GamePageController {
             }
 
             public double getCurrX(double currX) {
-                if (imgviewShuttle.getLayoutX() < 1120  && imgviewShuttle.getLayoutX() > 0){
+                if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX() > 0) {
                     if (goLeft) currX -= delta;
                     if (goRight) currX += delta;
-                }else if (imgviewShuttle.getLayoutX() <= 0){
+                } else if (imgviewShuttle.getLayoutX() <= 0) {
                     if (goRight) currX += delta;
-                }else if (imgviewShuttle.getLayoutX() >= 1120){
+                } else if (imgviewShuttle.getLayoutX() >= 1120) {
                     if (goLeft) currX -= delta;
                 }
                 return currX;
             }
 
             public double getCurrY(double currY) {
-                if (imgviewShuttle.getLayoutY() < 660  && imgviewShuttle.getLayoutY() > 0){
+                if (imgviewShuttle.getLayoutY() < 660 && imgviewShuttle.getLayoutY() > 0) {
                     if (goUp) currY -= delta;
                     if (goDown) currY += delta;
-                }else if (imgviewShuttle.getLayoutY() <= 0){
+                } else if (imgviewShuttle.getLayoutY() <= 0) {
                     if (goDown) currY += delta;
-                }else if (imgviewShuttle.getLayoutY() >= 660){
+                } else if (imgviewShuttle.getLayoutY() >= 660) {
                     if (goUp) currY -= delta;
                 }
                 return currY;
@@ -170,6 +168,7 @@ public class GamePageController {
         };
         timer.start();
     }
+
     private static void initialGame() {
 //        reset the store of used
         goUp = false;
@@ -180,10 +179,10 @@ public class GamePageController {
         gameOver = false;
         asteroidCounter = 0;
         asteroidCounter2 = 0;
-        if (difficultLevel){
+        if (difficultLevel) {
             score = 0;
-            destroyedAsteroidNumber=0;
-            timeBeginGame=new Date();
+            destroyedAsteroidNumber = 0;
+            timeBeginGame = new Date();
         }
         weapons = new ArrayList<>();
         root = new Group();

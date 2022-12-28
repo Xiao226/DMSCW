@@ -1,7 +1,5 @@
 package com.comp2059.app.controller;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -17,7 +15,7 @@ import static com.comp2059.app.informationStore.userName;
 
 public class ruleNamePageController {
     @FXML
-    TextField userNameField=new TextField();
+    TextField userNameField = new TextField();
 
 
     @FXML
@@ -26,6 +24,7 @@ public class ruleNamePageController {
         rankingStage.close();
         startStage.show();
     }
+
     @FXML
     public void onClickMoveToPlay(MouseEvent mouseEvent) throws IOException {
         if (userNameField.getText().isEmpty()) {
@@ -44,12 +43,13 @@ public class ruleNamePageController {
                 return;
             }
         }
-        userName=userNameField.getText();
+        userName = userNameField.getText();
         ruleNameStage.close();
-        timeBeginGame=new Date();
+        timeBeginGame = new Date();
         showGamePage();
 //        start();
     }
+
     @FXML
     private void handleTextFieldAction() {
         System.out.println(userNameField.getText());

@@ -1,25 +1,28 @@
 package com.comp2059.app.controller;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
-
-import java.awt.*;
-import java.awt.event.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Objects;
 
-import static com.comp2059.app.SpaceAsteroidApplication.*;
+import static com.comp2059.app.SpaceAsteroidApplication.appearanceStage;
+import static com.comp2059.app.SpaceAsteroidApplication.startStage;
 import static com.comp2059.app.informationStore.beamColor;
 
-public class appearanceController{
+public class appearanceController {
     public static Image shipSkinFinal;
+    public static Image backgroundFinal;
+    public static Image bigAFinal;
+    public static Image smallAFinal;
+    public static Image bossRain;
+
     static {
         try {
             shipSkinFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/blue.png"));
@@ -27,7 +30,7 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-    public static Image backgroundFinal;
+
     static {
         try {
             backgroundFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/background.png"));
@@ -35,7 +38,7 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-    public static Image bigAFinal;
+
     static {
         try {
             bigAFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/big_asteroid.png"));
@@ -43,7 +46,7 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-    public static Image smallAFinal;
+
     static {
         try {
             smallAFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/asteroid.png"));
@@ -51,7 +54,7 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
-    public static Image bossRain;
+
     static {
         try {
             bossRain = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/boss/boss.png"));
@@ -59,16 +62,17 @@ public class appearanceController{
             e.printStackTrace();
         }
     }
+
     @FXML
-    ComboBox <String> skin;
+    ComboBox<String> skin;
     @FXML
-    ComboBox <String> background;
+    ComboBox<String> background;
     @FXML
-    ComboBox <String> color;
+    ComboBox<String> color;
     @FXML
-    ComboBox <String> smallA;
+    ComboBox<String> smallA;
     @FXML
-    ComboBox <String> bigA;
+    ComboBox<String> bigA;
     @FXML
     ImageView bigAs;
     @FXML
@@ -79,6 +83,7 @@ public class appearanceController{
     ImageView ship;
     @FXML
     Rectangle beam;
+
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
         appearanceStage.close();
@@ -87,7 +92,7 @@ public class appearanceController{
 
     @FXML
     public void onMouseClickSkin() throws FileNotFoundException {
-        String sellect=skin.getSelectionModel().getSelectedItem();
+        String sellect = skin.getSelectionModel().getSelectedItem();
         Image a = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/blue.png"));
         Image b = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/dark.png"));
         Image c = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/handDraw.png"));
@@ -95,39 +100,40 @@ public class appearanceController{
         Image e = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/purple.png"));
         Image f = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/shuttle.png"));
         Image selectedFhoto;
-        if (sellect.equals("Hand Drew")){
-            selectedFhoto=c;
-        }else if (sellect.equals("Light")){
-            selectedFhoto=d;
-        }else if (sellect.equals("Dark")){
-            selectedFhoto=b;
-        }else if (sellect.equals("Purple")){
-            selectedFhoto=e;
-        }else if (sellect.equals("Blue")) {
-            selectedFhoto =a;
-        }else{
-            selectedFhoto=f;
+        if (sellect.equals("Hand Drew")) {
+            selectedFhoto = c;
+        } else if (sellect.equals("Light")) {
+            selectedFhoto = d;
+        } else if (sellect.equals("Dark")) {
+            selectedFhoto = b;
+        } else if (sellect.equals("Purple")) {
+            selectedFhoto = e;
+        } else if (sellect.equals("Blue")) {
+            selectedFhoto = a;
+        } else {
+            selectedFhoto = f;
         }
         ship.setImage(selectedFhoto);
-        shipSkinFinal=selectedFhoto;
+        shipSkinFinal = selectedFhoto;
     }
 
     @FXML
     public void onMouseClickBack() throws FileNotFoundException {
-        String sellect=background.getSelectionModel().getSelectedItem();
+        String sellect = background.getSelectionModel().getSelectedItem();
         Image a = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/background.png"));
         Image b = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/Background1.jpg"));
         Image select;
-        if (sellect.equals("Initial")){
-            select=a;
-        }else {
-            select=b;
+        if (sellect.equals("Initial")) {
+            select = a;
+        } else {
+            select = b;
         }
         backG.setImage(select);
-        backgroundFinal=select;
+        backgroundFinal = select;
     }
-    public void onMouseClickColor(){
-        String sellect=color.getSelectionModel().getSelectedItem();
+
+    public void onMouseClickColor() {
+        String sellect = color.getSelectionModel().getSelectedItem();
         switch (sellect) {
             case "BLUE" -> beamColor = Color.BLUE;
             case "BLACK" -> beamColor = Color.BLACK;
@@ -144,33 +150,33 @@ public class appearanceController{
 
     @FXML
     public void onMouseClickBig() throws FileNotFoundException {
-        String sellect=bigA.getSelectionModel().getSelectedItem();
+        String sellect = bigA.getSelectionModel().getSelectedItem();
         Image a = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/big_asteroid.png"));
         Image b = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/big_asteroidf2a.png"));
 
         Image select;
-        if (sellect.equals("Initial")){
-            select=a;
-        }else {
-            select=b;
+        if (sellect.equals("Initial")) {
+            select = a;
+        } else {
+            select = b;
         }
         bigAs.setImage(select);
-        bigAFinal=select;
+        bigAFinal = select;
 
     }
 
     @FXML
     public void onMouseClickSmall() throws FileNotFoundException {
-        String sellect=smallA.getSelectionModel().getSelectedItem();
+        String sellect = smallA.getSelectionModel().getSelectedItem();
         Image a = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/asteroid.png"));
         Image b = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/asteroidf2a.png"));
         Image select;
-        if (sellect.equals("Initial")){
-            select=a;
-        }else {
-            select=b;
+        if (sellect.equals("Initial")) {
+            select = a;
+        } else {
+            select = b;
         }
         smallAs.setImage(select);
-        smallAFinal=select;
+        smallAFinal = select;
     }
 }

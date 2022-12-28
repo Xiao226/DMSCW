@@ -22,6 +22,9 @@ import static com.comp2059.app.controller.appearanceController.shipSkinFinal;
 import static com.comp2059.app.informationStore.*;
 
 public class gameStageF2A {
+    static final double W = 1400;
+    static final double H = 820;
+    public static int score = 0; //Score being declared and initialized
     static boolean goUp;
     static boolean goDown;
     static boolean goLeft;
@@ -32,9 +35,6 @@ public class gameStageF2A {
     static ArrayList<Node> asteroid = new ArrayList<>();// This array list is used to store spawned  small asteroids
     static ArrayList<Node> bigAsteroid = new ArrayList<>(); // This array list is used to store spawned  big asteroids
     static ArrayList<Node> rocket = new ArrayList<>();
-    final double L = 800;
-    static final double W = 1400;
-    static final double H = 820;
     static int dShoot = 10;
     static Group root = new Group();
     static int asteroidCounter;
@@ -42,8 +42,8 @@ public class gameStageF2A {
     static int modifier = 150;
     static boolean gameOver;
     static Text txtscore;
-    public static int score = 0; //Score being declared and initialized
     static ImageView imgviewShuttle;
+    final double L = 800;
 
     public static void showGamePage() throws IOException {
         initialGame();
@@ -51,7 +51,7 @@ public class gameStageF2A {
         txtscore.setFill(Color.WHITE);
         Font font2 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 25);
         txtscore.setFont(font2);
-        gamePageTitle+=userName;
+        gamePageTitle += userName;
         gameStage.setTitle(gamePageTitle);
         imgviewShuttle = new ImageView(shipSkinFinal);
         rocket.add(imgviewShuttle);
@@ -114,9 +114,8 @@ public class gameStageF2A {
             public void handle(long arg0) {
                 double currX = imgviewShuttle.getLayoutX();
                 double currY = imgviewShuttle.getLayoutY();
-                if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX()>0
-                        && imgviewShuttle.getLayoutY() < 660  && imgviewShuttle.getLayoutY() > 0)
-                {
+                if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX() > 0
+                        && imgviewShuttle.getLayoutY() < 660 && imgviewShuttle.getLayoutY() > 0) {
                     if (goUp) currY -= delta;
                     if (goDown) currY += delta;
                     if (goLeft) currX -= delta;
@@ -125,16 +124,13 @@ public class gameStageF2A {
                 if (imgviewShuttle.getLayoutX() >= 1120) {
                     if (goLeft) currX -= delta;
                     currY = getCurrY(currY);
-                }
-                else if (imgviewShuttle.getLayoutX() <= 0) {
+                } else if (imgviewShuttle.getLayoutX() <= 0) {
                     if (goRight) currX += delta;
                     currY = getCurrY(currY);
-                }
-                else if (imgviewShuttle.getLayoutY() <= 0) {
+                } else if (imgviewShuttle.getLayoutY() <= 0) {
                     if (goDown) currY += delta;
                     currX = getCurrX(currX);
-                }
-                else if (imgviewShuttle.getLayoutY() >= 660) {
+                } else if (imgviewShuttle.getLayoutY() >= 660) {
                     if (goUp) currY -= delta;
                     currX = getCurrX(currX);
                 }
@@ -151,24 +147,24 @@ public class gameStageF2A {
             }
 
             public double getCurrX(double currX) {
-                if (imgviewShuttle.getLayoutX() < 1120  && imgviewShuttle.getLayoutX() > 0){
+                if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX() > 0) {
                     if (goLeft) currX -= delta;
                     if (goRight) currX += delta;
-                }else if (imgviewShuttle.getLayoutX() <= 0){
+                } else if (imgviewShuttle.getLayoutX() <= 0) {
                     if (goRight) currX += delta;
-                }else if (imgviewShuttle.getLayoutX() >= 1120){
+                } else if (imgviewShuttle.getLayoutX() >= 1120) {
                     if (goLeft) currX -= delta;
                 }
                 return currX;
             }
 
             public double getCurrY(double currY) {
-                if (imgviewShuttle.getLayoutY() < 660  && imgviewShuttle.getLayoutY() > 0){
+                if (imgviewShuttle.getLayoutY() < 660 && imgviewShuttle.getLayoutY() > 0) {
                     if (goUp) currY -= delta;
                     if (goDown) currY += delta;
-                }else if (imgviewShuttle.getLayoutY() <= 0){
+                } else if (imgviewShuttle.getLayoutY() <= 0) {
                     if (goDown) currY += delta;
-                }else if (imgviewShuttle.getLayoutY() >= 660){
+                } else if (imgviewShuttle.getLayoutY() >= 660) {
                     if (goUp) currY -= delta;
                 }
                 return currY;
@@ -187,10 +183,10 @@ public class gameStageF2A {
         gameOver = false;
         asteroidCounter = 0;
         asteroidCounter2 = 0;
-        if (difficultLevel){
+        if (difficultLevel) {
             score = 0;
-            destroyedAsteroidNumber=0;
-            timeBeginGame=new Date();
+            destroyedAsteroidNumber = 0;
+            timeBeginGame = new Date();
         }
         weapons = new ArrayList<>();
         root = new Group();
