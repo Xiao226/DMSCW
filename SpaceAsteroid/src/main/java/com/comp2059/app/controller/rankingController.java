@@ -20,6 +20,7 @@ public class rankingController {
     TextArea ranking=new TextArea();
     @FXML
     public void onClickInsert(){
+        ranking.setText(preparePrint());
         addresult(userName,destroyedAsteroidNumber,destroyedBossNumber,timeCalculate(timeBeginGame,timeEndGame), score);
         ranking.setText(preparePrint());
     }
@@ -35,7 +36,6 @@ public class rankingController {
     }
     @FXML
     public void shotDown(MouseEvent mouseEvent) throws IOException{
-        System.out.println("exit");
         writeTheRankingFile();
         Platform.exit();
     }

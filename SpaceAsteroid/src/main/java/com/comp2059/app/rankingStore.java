@@ -88,16 +88,7 @@ public class rankingStore {
         }
     }
     public static void moveBackOneLine(int start_position){
-        int max_len=0;
-        for (int i=0;i<20;i++){
-            if (rankingList[i]==null){
-                break;
-            }
-            System.out.println(rankingList[i][0]);
-            max_len=i;
-
-        }
-        for (int j = max_len+1;j>start_position;j--){
+        for (int j = 19;j>start_position;j--){
             rankingList[j]=rankingList[j-1];
         }
     }
