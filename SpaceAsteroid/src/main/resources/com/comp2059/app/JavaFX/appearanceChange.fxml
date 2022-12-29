@@ -64,6 +64,12 @@
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />
                <String fx:value="Cartoon" />
+               <String fx:value="Cartoon" />
+               <String fx:value="Cartoon" />
+               <String fx:value="Cartoon" />
+               <String fx:value="Cartoon" />
+               <String fx:value="Cartoon" />
+               <String fx:value="Cartoon" />
             </FXCollections>
          </items>
       </ComboBox>

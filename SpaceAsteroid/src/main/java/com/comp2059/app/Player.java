@@ -1,6 +1,5 @@
 package com.comp2059.app;
 
-import com.comp2059.app.controller.rankingController;
 import javafx.animation.PauseTransition;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -17,10 +16,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-import static com.comp2059.app.SpaceAsteroidApplication.*;
+import static com.comp2059.app.SpaceAsteroidApplication.endStage;
+import static com.comp2059.app.SpaceAsteroidApplication.gameStage;
 import static com.comp2059.app.gameStageF2A.*;
-import static com.comp2059.app.informationStore.*;
-import static com.comp2059.app.rankingStore.*;
+import static com.comp2059.app.informationStore.difficultLevel;
+import static com.comp2059.app.informationStore.timeEndGame;
 
 public class Player {
     //This is if the shuttle collided with asteroid.
@@ -46,7 +46,9 @@ public class Player {
                     root.getChildren().add(imgviewExplosion);
                     root.getChildren().remove(rocket.get(i));
                     rocket.remove(i);
-                    if (difficultLevel){timer.stop();}
+                    if (difficultLevel) {
+                        timer.stop();
+                    }
                     Text txtGameOver = new Text(500, 360, "Gameover!");
                     txtGameOver.setFill(Color.RED);
                     Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
@@ -59,7 +61,7 @@ public class Player {
                     btnQuit.setTranslateX(1000);
                     btnQuit.setTranslateY(600);
                     btnQuit.setStyle("-fx-background-color: red;");
-                    timeEndGame=new Date();
+                    timeEndGame = new Date();
                     // initial the rank
                     root.getChildren().add(btnQuit);
                     btnQuit.setOnAction(e ->
@@ -70,7 +72,7 @@ public class Player {
         }
     }
 
-    public void showTheEndPage(){
+    public void showTheEndPage() {
         gameStage.close();
         endStage.show();
     }

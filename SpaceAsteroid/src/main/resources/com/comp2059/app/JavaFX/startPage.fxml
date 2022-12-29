@@ -39,5 +39,6 @@
             </FXCollections>
          </items>
       </ComboBox>
+      <Button layoutX="33.0" layoutY="322.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="114.0" text="Info" />
    </children>
 </AnchorPane>

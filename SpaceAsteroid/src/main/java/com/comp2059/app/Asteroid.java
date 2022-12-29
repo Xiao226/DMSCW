@@ -8,10 +8,11 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import static com.comp2059.app.informationStore.*;
-import static com.comp2059.app.gameStageF2A.*;
+
 import static com.comp2059.app.controller.appearanceController.bigAFinal;
 import static com.comp2059.app.controller.appearanceController.smallAFinal;
+import static com.comp2059.app.gameStageF2A.*;
+import static com.comp2059.app.informationStore.destroyedAsteroidNumber;
 
 public class Asteroid {
     Image imgAsteroid = smallAFinal;
@@ -46,9 +47,11 @@ public class Asteroid {
     private void collideForBig() {
         collideForAsteroid(asteroidCounter2, imgBigAsteroid, H, bigAsteroid);
     }
+
     private void collideForSmall() {
         collideForAsteroid(asteroidCounter, imgAsteroid, W, asteroid);
     }
+
     private void collideForAsteroid(int asteroidCounter2, Image imgBigAsteroid, double h, ArrayList<Node> bigAsteroid) {
         if (asteroidCounter2 % modifier == 0) {
             Node newBigAsteroid = new ImageView(imgBigAsteroid);
@@ -57,7 +60,6 @@ public class Asteroid {
             root.getChildren().add(newBigAsteroid);
         }
     }
-
 
 
     //This methods cause the asteroids to move vertically downwards, the higher your score is the faster the asteroids will move; to increase difficulty
@@ -140,7 +142,7 @@ public class Asteroid {
                 if (weapons.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
                     collideCheck(i, j, asteroid);
                     score += 2;
-                    destroyedAsteroidNumber+=1;
+                    destroyedAsteroidNumber += 1;
                     txtscore.setText("Score: " + score);
                 }
             }
@@ -150,7 +152,7 @@ public class Asteroid {
                 if (weapons.get(i).getBoundsInParent().intersects(bigAsteroid.get(j).getBoundsInParent())) {
                     collideCheck(i, j, bigAsteroid);
                     score += 4;
-                    destroyedAsteroidNumber+=1;
+                    destroyedAsteroidNumber += 1;
                     txtscore.setText("Score: " + score);
                 }
             }
