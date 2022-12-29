@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controller.rankingController">
    <children>
-      <Button fx:id="Play" layoutX="720.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="80.0" prefWidth="150.0" text="PLAY AGAIN" />
+      <Button fx:id="Play" layoutX="720.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="80.0" prefWidth="150.0" text="PLAY AGAIN" />
       <Button fx:id="Exit" layoutX="720.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="80.0" prefWidth="150.0" text="EXIT NOW" />
       <Button layoutX="68.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickRefresh" prefHeight="80.0" prefWidth="218.0" text="Load data" />
       <TextArea fx:id="ranking" layoutX="68.0" layoutY="178.0" prefHeight="392.0" prefWidth="438.0" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score" />
@@ -18,5 +18,15 @@
          </font>
       </Label>
       <Button layoutX="288.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickInsert" prefHeight="80.0" prefWidth="218.0" text="Add your record" />
+      <Label fx:id="words" layoutX="558.0" layoutY="178.0" prefHeight="69.0" prefWidth="175.0">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label fx:id="records" layoutX="558.0" layoutY="247.0" prefHeight="80.0" prefWidth="415.0">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

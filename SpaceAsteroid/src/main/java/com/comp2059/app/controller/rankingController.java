@@ -2,13 +2,13 @@ package com.comp2059.app.controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
 import static com.comp2059.app.SpaceAsteroidApplication.*;
-import static com.comp2059.app.gameStageF2A.score;
 import static com.comp2059.app.gameStageF2A.showGamePage;
 import static com.comp2059.app.informationStore.*;
 import static com.comp2059.app.rankingStore.*;
@@ -16,6 +16,10 @@ import static com.comp2059.app.rankingStore.*;
 public class rankingController {
     @FXML
     TextArea ranking = new TextArea();
+    @FXML
+    Label records = new Label();
+    @FXML
+    Label words=new Label();
 
     @FXML
     public void onClickInsert() {
@@ -27,6 +31,8 @@ public class rankingController {
     @FXML
     public void onClickRefresh() {
         ranking.setText(preparePrint());
+        words.setText("Your Record: ");
+        records.setText(userName+", "+destroyedAsteroidNumber+", "+ destroyedBossNumber+ ", "+timeCalculate(timeBeginGame, timeEndGame)+", "+ score);
     }
 
     @FXML
@@ -48,7 +54,6 @@ public class rankingController {
         lifeUsed += 1;
         gamePageTitle = "This is your " + (lifeUsed + 1) + " try. Enjoy it.";
         showGamePage();
-//        start();
     }
 
 

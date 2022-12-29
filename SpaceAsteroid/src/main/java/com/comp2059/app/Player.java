@@ -19,8 +19,7 @@ import java.util.Objects;
 import static com.comp2059.app.SpaceAsteroidApplication.endStage;
 import static com.comp2059.app.SpaceAsteroidApplication.gameStage;
 import static com.comp2059.app.gameStageF2A.*;
-import static com.comp2059.app.informationStore.difficultLevel;
-import static com.comp2059.app.informationStore.timeEndGame;
+import static com.comp2059.app.informationStore.*;
 
 public class Player {
     //This is if the shuttle collided with asteroid.

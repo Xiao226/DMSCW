@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import static com.comp2059.app.controller.appearanceController.backgroundFinal;
-import static com.comp2059.app.gameStageF2A.root;
+import static com.comp2059.app.informationStore.root;
 
 public class Space {
     // This classes will add the background image to the stage

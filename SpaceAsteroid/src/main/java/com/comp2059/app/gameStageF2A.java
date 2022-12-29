@@ -22,28 +22,6 @@ import static com.comp2059.app.controller.appearanceController.shipSkinFinal;
 import static com.comp2059.app.informationStore.*;
 
 public class gameStageF2A {
-    static final double W = 1400;
-    static final double H = 820;
-    public static int score = 0; //Score being declared and initialized
-    static boolean goUp;
-    static boolean goDown;
-    static boolean goLeft;
-    static boolean goRight;
-    static boolean shoot;
-    static AnimationTimer timer;
-    static ArrayList<Node> weapons = new ArrayList<>(); //This is an array list that stores the laser beams that are fired
-    static ArrayList<Node> asteroid = new ArrayList<>();// This array list is used to store spawned  small asteroids
-    static ArrayList<Node> bigAsteroid = new ArrayList<>(); // This array list is used to store spawned  big asteroids
-    static ArrayList<Node> rocket = new ArrayList<>();
-    static int dShoot = 10;
-    static Group root = new Group();
-    static int asteroidCounter;
-    static int asteroidCounter2;
-    static int modifier = 150;
-    static boolean gameOver;
-    static Text txtscore;
-    static ImageView imgviewShuttle;
-    final double L = 800;
 
     public static void showGamePage() throws IOException {
         initialGame();
