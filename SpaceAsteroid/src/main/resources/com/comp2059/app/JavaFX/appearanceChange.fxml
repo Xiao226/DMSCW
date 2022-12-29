@@ -56,6 +56,7 @@
                <String fx:value="Dark" />
                <String fx:value="Purple" />
                <String fx:value="Blue" />
+               <String fx:value="Super" />
             </FXCollections>
          </items>
       </ComboBox>
@@ -64,12 +65,12 @@
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />
                <String fx:value="Cartoon" />
-               <String fx:value="Cartoon" />
-               <String fx:value="Cartoon" />
-               <String fx:value="Cartoon" />
-               <String fx:value="Cartoon" />
-               <String fx:value="Cartoon" />
-               <String fx:value="Cartoon" />
+               <String fx:value="Space Photo 1" />
+               <String fx:value="Space Photo 2" />
+               <String fx:value="Space Photo 3" />
+               <String fx:value="Space Photo 4" />
+               <String fx:value="Space Photo 5" />
+               <String fx:value="Space Photo 6" />
             </FXCollections>
          </items>
       </ComboBox>
@@ -78,6 +79,8 @@
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />
                <String fx:value="F2A" />
+               <String fx:value="Enemy 1" />
+               <String fx:value="Enemy 2" />
             </FXCollections>
          </items>
       </ComboBox>
@@ -86,6 +89,8 @@
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />
                <String fx:value="F2A" />
+               <String fx:value="Enemy 1" />
+               <String fx:value="Enemy 2" />
             </FXCollections>
          </items>
       </ComboBox>

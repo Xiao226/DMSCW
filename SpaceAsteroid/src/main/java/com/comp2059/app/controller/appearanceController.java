@@ -99,6 +99,8 @@ public class appearanceController {
         Image d = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/light.png"));
         Image e = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/purple.png"));
         Image f = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/shuttle.png"));
+        Image g = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/super.png"));
+
         Image selectedFhoto;
         if (sellect.equals("Hand Drew")) {
             selectedFhoto = c;
@@ -110,6 +112,8 @@ public class appearanceController {
             selectedFhoto = e;
         } else if (sellect.equals("Blue")) {
             selectedFhoto = a;
+        }else if (sellect.equals("Super")) {
+            selectedFhoto = g;
         } else {
             selectedFhoto = f;
         }
@@ -122,10 +126,30 @@ public class appearanceController {
         String sellect = background.getSelectionModel().getSelectedItem();
         Image a = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/background.png"));
         Image b = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/Background1.jpg"));
+        Image c = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/space1.png"));
+        Image d = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/space2.jpg"));
+        Image e = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/space3.jpg"));
+        Image f = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/space4.jpg"));
+        Image g = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/space5.jpg"));
+        Image h = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/space6.png"));
+
+
         Image select;
         if (sellect.equals("Initial")) {
             select = a;
-        } else {
+        }else if (sellect.equals("Space Photo 1")){
+            select=c;
+        }else if (sellect.equals("Space Photo 2")){
+            select=d;
+        }else if (sellect.equals("Space Photo 3")){
+            select=e;
+        }else if (sellect.equals("Space Photo 4")){
+            select=f;
+        }else if (sellect.equals("Space Photo 5")){
+            select=g;
+        }else if (sellect.equals("Space Photo 6")){
+            select=h;
+        }else{
             select = b;
         }
         backG.setImage(select);
@@ -153,11 +177,16 @@ public class appearanceController {
         String sellect = bigA.getSelectionModel().getSelectedItem();
         Image a = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/big_asteroid.png"));
         Image b = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/big_asteroidf2a.png"));
-
+        Image c = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/enemy2big.png"));
+        Image d = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/enemy3big.png"));
         Image select;
         if (sellect.equals("Initial")) {
             select = a;
-        } else {
+        }else if(sellect.equals("Enemy 1")){
+            select=c;
+        }else if(sellect.equals("Enemy 2")){
+            select=d;
+        }else{
             select = b;
         }
         bigAs.setImage(select);
@@ -170,9 +199,15 @@ public class appearanceController {
         String sellect = smallA.getSelectionModel().getSelectedItem();
         Image a = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/asteroid.png"));
         Image b = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/asteroidf2a.png"));
+        Image c = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/enemy2.png"));
+        Image d = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/enemy3.png"));
         Image select;
         if (sellect.equals("Initial")) {
             select = a;
+        }else if(sellect.equals("Enemy 1")){
+            select=c;
+        }else if(sellect.equals("Enemy 2")){
+            select=d;
         } else {
             select = b;
         }
