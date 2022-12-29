@@ -2,7 +2,6 @@ package com.comp2059.app;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -119,9 +118,15 @@ public class gameStageF2A {
                 fire.fire(dShoot);
                 shuttle.collide();
                 Asteroid asteroid = new Asteroid();
+                Boss boss = new Boss();
                 asteroid.CreateAsteroid();
                 asteroid.moveAsteroid();
                 asteroid.collide();
+                if (Math.floorMod(score,10)==0){
+                    boss.CreateBoss();
+                    boss.collide();
+                }
+
             }
 
             public double getCurrX(double currX) {
@@ -159,8 +164,10 @@ public class gameStageF2A {
         goRight = false;
         shoot = false;
         gameOver = false;
+        isBossBeaten=true;
         asteroidCounter = 0;
         asteroidCounter2 = 0;
+
         if (difficultLevel) {
             score = 0;
             destroyedAsteroidNumber = 0;

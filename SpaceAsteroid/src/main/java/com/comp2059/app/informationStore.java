@@ -13,11 +13,6 @@ import java.util.Date;
 public record informationStore() {
     public static boolean difficultLevel = false;
     public static String fileName = "./src/main/resources/com/comp2059/app/ranking.txt";
-    public static String additionalInformation =
-            "Welcome to F2A's game, this game is developed by Fish and Smile.\n" +
-                    "You can choose to change your ship's skin by clicking the change skin bottom.\n" +
-                    "You can choose to change your background by clicking the change background bottom.\n" +
-                    "If everything is ready you can click the play bottom for the last preparatory work before start the game.\n ";
     public static String[][] rankingList = new String[20][5];
     public static Color beamColor;
     public static int lifeUsed = 0;
@@ -46,15 +41,20 @@ public record informationStore() {
     public static boolean goLeft;
     public static boolean goRight;
     public static boolean shoot;
+    public static boolean shootDenied;
+    public static boolean isBossBeaten;
     public static AnimationTimer timer;
     public  static ArrayList<Node> weapons = new ArrayList<>(); //This is an array list that stores the laser beams that are fired
     public static ArrayList<Node> asteroid = new ArrayList<>();// This array list is used to store spawned  small asteroids
     public static ArrayList<Node> bigAsteroid = new ArrayList<>(); // This array list is used to store spawned  big asteroids
+    public static ArrayList<Node> bossPosition = new ArrayList<>();// This array list is used to store boss
+    public static ArrayList<Boss> bossArray = new ArrayList<>();// This array list is used to store boss
     public static ArrayList<Node> rocket = new ArrayList<>();
     public static int dShoot = 10;
     public static Group root = new Group();
     public static int asteroidCounter;
-    public  static int asteroidCounter2;
+    public static int asteroidCounter2;
+    public  static int bossCounter;
     public static int modifier = 150;
     public  static boolean gameOver;
     public  static Text txtscore;

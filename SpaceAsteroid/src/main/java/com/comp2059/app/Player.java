@@ -18,7 +18,6 @@ import java.util.Objects;
 
 import static com.comp2059.app.SpaceAsteroidApplication.endStage;
 import static com.comp2059.app.SpaceAsteroidApplication.gameStage;
-import static com.comp2059.app.gameStageF2A.*;
 import static com.comp2059.app.informationStore.*;
 
 public class Player {

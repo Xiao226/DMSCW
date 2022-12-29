@@ -14,149 +14,59 @@ import static com.comp2059.app.informationStore.*;
 
 public class Boss {
     Image imgBoss = bossRain;
-
-    public void CreateAsteroid() {
-        asteroidCounter++;
-        // This is an algorithm that will spawn the asteroids, as your score gets bigger more asteroids will spawn, to increase difficulty.
-//        if (score < 25) {
-//            collideForSmall();
-//            collideForBig();
-//        } else if (score >= 25 && score < 60) {
-//            collideForSmall();
-//            collideForSmall();
-//            collideForBig();
-//        } else if (score >= 60 && score < 85) {
-//            collideForSmall();
-//            collideForSmall();
-//            collideForSmall();
-//            collideForBig();
-//        } else if (score >= 85) {
-//            collideForSmall();
-//            collideForSmall();
-//            collideForSmall();
-//            collideForSmall();
-//            collideForBig();
-//        }
-
+    int hpCount=10;
+    Boss(){
+        hpCount=10*(Math.floorDiv(score,25)+1);
     }
 
-    private void collideForBoss() {
-        collideForAsteroid(asteroidCounter, bossRain, W, asteroid);
+    public void CreateBoss() {
+        bossCounter++;
+        collideForBossUsecase();
     }
 
-    private void collideForAsteroid(int asteroidCounter2, Image imgBigAsteroid, double h, ArrayList<Node> bigAsteroid) {
+    private void collideForBossUsecase() {
+        int number= Math.floorDiv(score,25);
+        for (int i = 0; i < number+1; i++) {
+            collideForBoss(asteroidCounter, new Boss(), W, asteroid);
+        }
+    }
+
+    private void collideForBoss(int asteroidCounter2, Boss bossImage, double h, ArrayList<Node> bigAsteroid) {
         if (asteroidCounter2 % modifier == 0) {
-            Node newBigAsteroid = new ImageView(imgBigAsteroid);
-            newBigAsteroid.relocate((int) (Math.random() * (h + newBigAsteroid.getBoundsInLocal().getWidth())), (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-            bigAsteroid.add(newBigAsteroid);
-            root.getChildren().add(newBigAsteroid);
+            Node newBoss = new ImageView(bossImage.imgBoss);
+            newBoss.relocate(570, 100);
+            bigAsteroid.add(newBoss);
+            root.getChildren().add(newBoss);
         }
     }
 
-
-    //This methods cause the asteroids to move vertically downwards, the higher your score is the faster the asteroids will move; to increase difficulty
-    public void moveAsteroid() {
-        if (score < 40) {
-            for (int i = 0; i < asteroid.size(); i++) {
-                if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                    asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 7);
-                } else {
-                    root.getChildren().remove(asteroid.get(i));
-                    asteroid.remove(i);
-                }
-            }
-            for (int j = 0; j < bigAsteroid.size(); j++) {
-                if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                    bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(), bigAsteroid.get(j).getLayoutY() + 6);
-                } else {
-                    root.getChildren().remove(bigAsteroid.get(j));
-                    bigAsteroid.remove(j);
-                }
-            }
-        } else if (score >= 40 && score < 70) {
-            for (int i = 0; i < asteroid.size(); i++) {
-                if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                    asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 9);
-                } else {
-                    root.getChildren().remove(asteroid.get(i));
-                    asteroid.remove(i);
-                }
-            }
-            for (int j = 0; j < bigAsteroid.size(); j++) {
-                if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                    bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(), bigAsteroid.get(j).getLayoutY() + 8);
-                } else {
-                    root.getChildren().remove(bigAsteroid.get(j));
-                    bigAsteroid.remove(j);
-                }
-            }
-        } else if (score >= 70 && score < 100) {
-            for (int i = 0; i < asteroid.size(); i++) {
-                if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                    asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 11);
-                } else {
-                    root.getChildren().remove(asteroid.get(i));
-                    asteroid.remove(i);
-                }
-            }
-            for (int j = 0; j < bigAsteroid.size(); j++) {
-                if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                    bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(), bigAsteroid.get(j).getLayoutY() + 10);
-                } else {
-                    root.getChildren().remove(bigAsteroid.get(j));
-                    bigAsteroid.remove(j);
-                }
-            }
-        } else if (score >= 100) {
-            for (int i = 0; i < asteroid.size(); i++) {
-                if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                    asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 14);
-                } else {
-                    root.getChildren().remove(asteroid.get(i));
-                    asteroid.remove(i);
-                }
-            }
-            for (int j = 0; j < bigAsteroid.size(); j++) {
-                if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                    bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(), bigAsteroid.get(j).getLayoutY() + 13);
-                } else {
-                    root.getChildren().remove(bigAsteroid.get(j));
-                    bigAsteroid.remove(j);
-                }
-            }
-        }
-    }
 
     //This is if the laser beam collided with asteroid it will cause and explosion and you will gain two points
     public void collide() {
         for (int i = 0; i < weapons.size(); i++) {
-            for (int j = 0; j < asteroid.size(); j++) {
-                if (weapons.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
-                    collideCheck(i, j, asteroid);
-                    score += 2;
-                    destroyedAsteroidNumber += 1;
-                    txtscore.setText("Score: " + score);
-                }
-            }
-        }
-        for (int i = 0; i < weapons.size(); i++) {
-            for (int j = 0; j < bigAsteroid.size(); j++) {
-                if (weapons.get(i).getBoundsInParent().intersects(bigAsteroid.get(j).getBoundsInParent())) {
-                    collideCheck(i, j, bigAsteroid);
-                    score += 4;
-                    destroyedAsteroidNumber += 1;
+            for (int j = 0; j < bossArray.size(); j++) {
+                if (weapons.get(i).getBoundsInParent().intersects(bossPosition.get(j).getBoundsInParent())) {
+                    collideCheck(i, j, bossPosition,bossArray);
+                    score += 20;
+                    destroyedBossNumber += 1;
                     txtscore.setText("Score: " + score);
                 }
             }
         }
     }
 
-    public void collideCheck(int i, int j, ArrayList<Node> asteroid) {
+    public void collideCheck(int i, int j, ArrayList<Node> boss,ArrayList<Boss> bossA) {
         Image imgExplosion = new Image(Objects.requireNonNull(getClass().getResource("img/explosion.gif")).toExternalForm());
         ImageView imgViewExplosion = new ImageView(imgExplosion);
-        imgViewExplosion.relocate(asteroid.get(j).getLayoutX(), asteroid.get(j).getLayoutY());
-        root.getChildren().remove(asteroid.get(j));
-        asteroid.remove(j);
+        imgViewExplosion.relocate(boss.get(j).getLayoutX(), boss.get(j).getLayoutY());
+        bossA.get(j).hpCount-=1;
+        if (bossA.get(j).hpCount==0){
+            root.getChildren().remove(boss.get(j));
+            boss.remove(j);
+            bossA.remove(j);
+        }else {
+            boss.get(j).relocate((int) (Math.random() * (H + boss.get(j).getBoundsInLocal().getWidth())), (int) (Math.random() / (W + boss.get(j).getBoundsInLocal().getWidth())));
+        }
         root.getChildren().add(imgViewExplosion);
         PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion doesn't infinitely loop.
         wait.setOnFinished((e) -> root.getChildren().remove(imgViewExplosion));

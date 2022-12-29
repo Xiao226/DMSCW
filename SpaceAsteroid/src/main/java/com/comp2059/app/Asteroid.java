@@ -11,7 +11,6 @@ import java.util.Objects;
 
 import static com.comp2059.app.controller.appearanceController.bigAFinal;
 import static com.comp2059.app.controller.appearanceController.smallAFinal;
-import static com.comp2059.app.gameStageF2A.*;
 import static com.comp2059.app.informationStore.*;
 
 public class Asteroid {
@@ -29,27 +28,18 @@ public class Asteroid {
 
     private void collideForBig(int score) {
         // every time the score increase 25 the big number increase 1
-        if (score<25) collideForAsteroid(asteroidCounter2, imgBigAsteroid, H, bigAsteroid);
-        else {
-            int time=Math.floorDiv(score,25);
-            for (int i = 0; i < time+1; i++) {
-                collideForAsteroid(asteroidCounter2, imgBigAsteroid, H, bigAsteroid);
-            }
+        int time=Math.floorDiv(score,25);
+        for (int i = 0; i < time+1; i++) {
+            collideForAsteroid(asteroidCounter2, imgBigAsteroid, H, bigAsteroid);
         }
+
     }
 
     private void collideForSmall(int score) {
-        if (score<25){
-            for (int i = 0; i < 2; i++) {
-                collideForAsteroid(asteroidCounter, imgAsteroid, W, asteroid);
-            }
-        }else {
-            int time=Math.floorDiv(score,25);
-            for (int i = 0; i < (time+1)*2; i++) {
-                collideForAsteroid(asteroidCounter, imgAsteroid, W, asteroid);
-            }
+        int time=Math.floorDiv(score,25);
+        for (int i = 0; i < (time+1)*2; i++) {
+            collideForAsteroid(asteroidCounter, imgAsteroid, W, asteroid);
         }
-
     }
 
     private void collideForAsteroid(int asteroidCounter2, Image imgAsteroid, double h, ArrayList<Node> bigAsteroid) {
