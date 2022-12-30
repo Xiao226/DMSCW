@@ -1,14 +1,5 @@
 Smile 233 4 3:50 233 
 Fish 20 0 1:30 60 
-testerzero 13 0 0:17 42 
-final 7 0 0:27 20 
-final 2 0 0:8 6 
-testerzero 2 0 0:3 6 
-testerzero 2 0 0:3 6 
-testerzero 2 0 0:3 6 
-zxcv 1 0 0:7 4 
-aaa 0 0 0:3 0 
-Admin 0 0 0:0 0 
 
 
  
