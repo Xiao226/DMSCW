@@ -11,7 +11,7 @@
       <Button fx:id="Play" layoutX="720.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="80.0" prefWidth="150.0" text="PLAY AGAIN" />
       <Button fx:id="Exit" layoutX="720.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="80.0" prefWidth="150.0" text="EXIT NOW" />
       <Button layoutX="68.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickRefresh" prefHeight="80.0" prefWidth="218.0" text="Load data" />
-      <TextArea fx:id="ranking" layoutX="68.0" layoutY="178.0" prefHeight="392.0" prefWidth="438.0" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score" />
+      <Label fx:id="ranking" layoutX="68.0" layoutY="178.0" prefHeight="392.0" prefWidth="438.0" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score" />
       <Label alignment="CENTER" layoutX="207.0" layoutY="49.0" prefHeight="119.0" prefWidth="614.0" text="GAME OVER" textFill="RED" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font size="83.0" />

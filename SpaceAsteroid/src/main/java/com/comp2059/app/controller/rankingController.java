@@ -15,7 +15,7 @@ import static com.comp2059.app.rankingStore.*;
 
 public class rankingController {
     @FXML
-    TextArea ranking = new TextArea();
+    Label ranking = new Label();
     @FXML
     Label records = new Label();
     @FXML
