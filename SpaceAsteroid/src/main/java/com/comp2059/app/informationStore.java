@@ -37,6 +37,7 @@ public record informationStore() {
     public static final double H = 820;
     public static final int speed=7;// control the speed of asteroid
     public static int score = 0; //Score being declared and initialized
+    public static int scoreBoss = 0; //Score being declared and initialized
     public static boolean goUp;
     public static boolean goDown;
     public static boolean goLeft;
@@ -59,6 +60,6 @@ public record informationStore() {
     public static final double L = 800;
 
     public static ArrayList<Node> bossArray = new ArrayList<>(); // This array list is used to store boss
-    public static int bossHP = 10;
-    public  static int bossCounter;
+    public static int bossHP;
+    public  static int bossCounter=0;
 }

@@ -21,6 +21,7 @@ public class Boss {
 
     public void CreateBoss() {
         bossCounter++;
+        bossHP=5+bossCounter;
         Node newBoss = new ImageView(imgBoss);
         newBoss.relocate(570, 100);
         bossArray.add(newBoss);
@@ -33,8 +34,8 @@ public class Boss {
             for (int j = 0; j<bossArray.size();j++) {
                 if (weapons.get(i).getBoundsInParent().intersects(bossArray.get(j).getBoundsInParent())) {
                     collideCheckBoss(i,j);
-                    score += 20;
-                    txtscore.setText("Score: " + score);
+                    scoreBoss += 2*bossCounter;
+                    txtscore.setText("Score: " + score+" + "+scoreBoss);
                 }
             }
         }
@@ -45,6 +46,7 @@ public class Boss {
         ImageView imgViewExplosion = new ImageView(imgExplosion);
         imgViewExplosion.relocate(bossArray.get(j).getLayoutX(), bossArray.get(j).getLayoutY());
         bossHP-=1;
+        System.out.println(bossHP);
         if (bossHP==0){
             destroyedBossNumber += 1;
             isBossBeaten=true;

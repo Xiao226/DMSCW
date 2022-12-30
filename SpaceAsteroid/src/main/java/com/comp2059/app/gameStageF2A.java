@@ -24,7 +24,7 @@ public class gameStageF2A {
 
     public static void showGamePage() throws IOException {
         initialGame();
-        txtscore = new Text(1000, 50, "Score: " + score);
+        txtscore = new Text(1000, 50, "Score: " + score+" + "+scoreBoss);
         txtscore.setFill(Color.WHITE);
         Font font2 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 25);
         txtscore.setFont(font2);
@@ -122,7 +122,6 @@ public class gameStageF2A {
                 asteroid.moveAsteroid();
                 asteroid.collide();
                 Boss boss = new Boss();
-                System.out.println(timeCalculate(timeBeginGame,new Date()));
                 if (timeCalculate(timeBeginGame,new Date()).matches(patternMinute)&&isBossBeaten){
                     isBossBeaten=false;
                     Boss.initialBossHp();
@@ -172,7 +171,9 @@ public class gameStageF2A {
         asteroidCounter2 = 0;
 
         if (difficultLevel) {
+            scoreBoss=0;
             score = 0;
+            bossCounter=0;
             destroyedAsteroidNumber = 0;
             timeBeginGame = new Date();
         }

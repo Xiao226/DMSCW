@@ -24,7 +24,7 @@ public class rankingController {
     @FXML
     public void onClickInsert() {
         ranking.setText(preparePrint());
-        addresult(userName, destroyedAsteroidNumber, destroyedBossNumber, timeCalculate(timeBeginGame, timeEndGame), score);
+        addresult(userName, destroyedAsteroidNumber, destroyedBossNumber, timeCalculate(timeBeginGame, timeEndGame), (score+scoreBoss));
         ranking.setText(preparePrint());
     }
 
@@ -32,7 +32,7 @@ public class rankingController {
     public void onClickRefresh() {
         ranking.setText(preparePrint());
         words.setText("Your Record: ");
-        records.setText(userName+", "+destroyedAsteroidNumber+", "+ destroyedBossNumber+ ", "+timeCalculate(timeBeginGame, timeEndGame)+", "+ score);
+        records.setText(userName+", "+destroyedAsteroidNumber+", "+ destroyedBossNumber+ ", "+timeCalculate(timeBeginGame, timeEndGame)+", "+ (score+scoreBoss));
     }
 
     @FXML

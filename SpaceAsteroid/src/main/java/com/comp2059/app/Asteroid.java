@@ -85,9 +85,9 @@ public class Asteroid {
             for (int j = 0; j < asteroid.size(); j++) {
                 if (weapons.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
                     collideCheck(i, j, asteroid);
-                    score += 2;
+                    if (isBossBeaten)score += 2;
                     destroyedAsteroidNumber += 1;
-                    txtscore.setText("Score: " + score);
+                    txtscore.setText("Score: " + score+" + "+scoreBoss);
                 }
             }
         }
@@ -97,7 +97,7 @@ public class Asteroid {
                     collideCheck(i, j, bigAsteroid);
                     if (isBossBeaten)score += 4;
                     destroyedAsteroidNumber += 1;
-                    txtscore.setText("Score: " + score);
+                    txtscore.setText("Score: " + score+" + "+scoreBoss);
                 }
             }
         }
