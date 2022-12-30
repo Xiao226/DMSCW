@@ -47,6 +47,7 @@ public class Boss {
         bossHP-=1;
         if (bossHP==0){
             destroyedBossNumber += 1;
+            isBossBeaten=true;
             root.getChildren().remove(bossArray.get(j));
             bossArray.remove(j);
         }else {

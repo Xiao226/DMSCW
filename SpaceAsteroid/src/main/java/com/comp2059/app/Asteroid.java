@@ -95,7 +95,7 @@ public class Asteroid {
             for (int j = 0; j < bigAsteroid.size(); j++) {
                 if (weapons.get(i).getBoundsInParent().intersects(bigAsteroid.get(j).getBoundsInParent())) {
                     collideCheck(i, j, bigAsteroid);
-                    score += 4;
+                    if (isBossBeaten)score += 4;
                     destroyedAsteroidNumber += 1;
                     txtscore.setText("Score: " + score);
                 }

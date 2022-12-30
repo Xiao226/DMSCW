@@ -31,6 +31,7 @@ public record informationStore() {
         String result = minute + ":" + second;
         return result;
     }
+    public static String patternMinute=".*:0";
 
     public static final double W = 1400;
     public static final double H = 820;
@@ -41,7 +42,6 @@ public record informationStore() {
     public static boolean goLeft;
     public static boolean goRight;
     public static boolean shoot;
-    public static boolean shootDenied;
     public static boolean isBossBeaten;
     public static AnimationTimer timer;
     public  static ArrayList<Node> weapons = new ArrayList<>(); //This is an array list that stores the laser beams that are fired
@@ -61,5 +61,4 @@ public record informationStore() {
     public static ArrayList<Node> bossArray = new ArrayList<>(); // This array list is used to store boss
     public static int bossHP = 10;
     public  static int bossCounter;
-
 }

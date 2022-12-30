@@ -122,11 +122,14 @@ public class gameStageF2A {
                 asteroid.moveAsteroid();
                 asteroid.collide();
                 Boss boss = new Boss();
-                if (score==40){
+                System.out.println(timeCalculate(timeBeginGame,new Date()));
+                if (timeCalculate(timeBeginGame,new Date()).matches(patternMinute)&&isBossBeaten){
+                    isBossBeaten=false;
                     Boss.initialBossHp();
-                    boss.collide();
-                }
+                    boss.CreateBoss();
 
+                }
+                boss.collide();
             }
 
             public double getCurrX(double currX) {
