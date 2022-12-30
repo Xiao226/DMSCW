@@ -29,6 +29,7 @@ public class Asteroid {
     private void collideForBig(int score) {
         // every time the score increase 25 the big number increase 1
         int time=Math.floorDiv(score,25);
+        if (time<0)time=0;
         for (int i = 0; i < time+1; i++) {
             collideForAsteroid(asteroidCounter2, imgBigAsteroid, H, bigAsteroid);
         }
@@ -37,6 +38,7 @@ public class Asteroid {
 
     private void collideForSmall(int score) {
         int time=Math.floorDiv(score,25);
+        if (time<0)time=0;
         for (int i = 0; i < (time+1)*2; i++) {
             collideForAsteroid(asteroidCounter, imgAsteroid, W, asteroid);
         }
