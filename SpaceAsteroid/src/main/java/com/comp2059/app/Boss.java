@@ -46,7 +46,6 @@ public class Boss {
         ImageView imgViewExplosion = new ImageView(imgExplosion);
         imgViewExplosion.relocate(bossArray.get(j).getLayoutX(), bossArray.get(j).getLayoutY());
         bossHP-=1;
-        System.out.println(bossHP);
         if (bossHP==0){
             destroyedBossNumber += 1;
             isBossBeaten=true;

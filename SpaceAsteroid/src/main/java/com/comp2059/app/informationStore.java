@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public record informationStore() {
+    public static final double W = 1400;
+    public static final double H = 820;
+    public static final int speed = 7;// control the speed of asteroid
+    public static final double L = 800;
     public static boolean difficultLevel = false;
     public static String fileName = "./src/main/resources/com/comp2059/app/ranking.txt";
     public static String[][] rankingList = new String[20][5];
@@ -22,20 +26,7 @@ public record informationStore() {
     public static String userName = "Admin";
     public static int destroyedAsteroidNumber = 0;
     public static int destroyedBossNumber = 0;
-
-    public static String timeCalculate(Date dateBegin, Date dateEnd) {
-        long temp = dateEnd.getTime() - dateBegin.getTime();
-        int total = (int) (temp / 1000);
-        int second = Math.floorMod(total, 60);
-        int minute = Math.floorDiv(total, 60);
-        String result = minute + ":" + second;
-        return result;
-    }
-    public static String patternMinute=".*:0";
-
-    public static final double W = 1400;
-    public static final double H = 820;
-    public static final int speed=7;// control the speed of asteroid
+    public static String patternMinute = ".*:0";
     public static int score = 0; //Score being declared and initialized
     public static int scoreBoss = 0; //Score being declared and initialized
     public static boolean goUp;
@@ -45,7 +36,7 @@ public record informationStore() {
     public static boolean shoot;
     public static boolean isBossBeaten;
     public static AnimationTimer timer;
-    public  static ArrayList<Node> weapons = new ArrayList<>(); //This is an array list that stores the laser beams that are fired
+    public static ArrayList<Node> weapons = new ArrayList<>(); //This is an array list that stores the laser beams that are fired
     public static ArrayList<Node> asteroid = new ArrayList<>();// This array list is used to store spawned  small asteroids
     public static ArrayList<Node> bigAsteroid = new ArrayList<>(); // This array list is used to store spawned  big asteroids
     public static ArrayList<Node> rocket = new ArrayList<>();
@@ -54,12 +45,19 @@ public record informationStore() {
     public static int asteroidCounter;
     public static int asteroidCounter2;
     public static int modifier = 150;
-    public  static boolean gameOver;
-    public  static Text txtscore;
-    public  static ImageView imgviewShuttle;
-    public static final double L = 800;
-
+    public static boolean gameOver;
+    public static Text txtscore;
+    public static ImageView imgviewShuttle;
     public static ArrayList<Node> bossArray = new ArrayList<>(); // This array list is used to store boss
     public static int bossHP;
-    public  static int bossCounter=0;
+    public static int bossCounter = 0;
+
+    public static String timeCalculate(Date dateBegin, Date dateEnd) {
+        long temp = dateEnd.getTime() - dateBegin.getTime();
+        int total = (int) (temp / 1000);
+        int second = Math.floorMod(total, 60);
+        int minute = Math.floorDiv(total, 60);
+        String result = minute + ":" + second;
+        return result;
+    }
 }

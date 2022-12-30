@@ -126,7 +126,6 @@ public class gameStageF2A {
                     isBossBeaten=false;
                     Boss.initialBossHp();
                     boss.CreateBoss();
-
                 }
                 boss.collide();
             }
