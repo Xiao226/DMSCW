@@ -118,12 +118,12 @@ public class gameStageF2A {
                 fire.fire(dShoot);
                 shuttle.collide();
                 Asteroid asteroid = new Asteroid();
-                Boss boss = new Boss();
                 asteroid.CreateAsteroid();
                 asteroid.moveAsteroid();
                 asteroid.collide();
-                if (Math.floorMod(score,10)==0){
-                    boss.CreateBoss();
+                Boss boss = new Boss();
+                if (score==40){
+                    Boss.initialBossHp();
                     boss.collide();
                 }
 

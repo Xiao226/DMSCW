@@ -47,18 +47,19 @@ public record informationStore() {
     public  static ArrayList<Node> weapons = new ArrayList<>(); //This is an array list that stores the laser beams that are fired
     public static ArrayList<Node> asteroid = new ArrayList<>();// This array list is used to store spawned  small asteroids
     public static ArrayList<Node> bigAsteroid = new ArrayList<>(); // This array list is used to store spawned  big asteroids
-    public static ArrayList<Node> bossPosition = new ArrayList<>();// This array list is used to store boss
-    public static ArrayList<Boss> bossArray = new ArrayList<>();// This array list is used to store boss
     public static ArrayList<Node> rocket = new ArrayList<>();
     public static int dShoot = 10;
     public static Group root = new Group();
     public static int asteroidCounter;
     public static int asteroidCounter2;
-    public  static int bossCounter;
     public static int modifier = 150;
     public  static boolean gameOver;
     public  static Text txtscore;
     public  static ImageView imgviewShuttle;
     public static final double L = 800;
+
+    public static ArrayList<Node> bossArray = new ArrayList<>(); // This array list is used to store boss
+    public static int bossHP = 10;
+    public  static int bossCounter;
 
 }
