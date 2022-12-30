@@ -34,6 +34,10 @@ public class rankingController {
         words.setText("Your Record: ");
         records.setText(userName+", "+destroyedAsteroidNumber+", "+ destroyedBossNumber+ ", "+timeCalculate(timeBeginGame, timeEndGame)+", "+ (score+scoreBoss));
     }
+    @FXML
+    public void onClickRefreshSingle() {
+        ranking.setText(preparePrint());
+    }
 
     @FXML
     public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
