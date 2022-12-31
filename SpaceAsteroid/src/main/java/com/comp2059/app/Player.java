@@ -20,14 +20,24 @@ import static com.comp2059.app.SpaceAsteroidApplication.endStage;
 import static com.comp2059.app.SpaceAsteroidApplication.gameStage;
 import static com.comp2059.app.informationStore.*;
 
+/**
+ * This class is for the player.
+ * Containing judge the collide of player and asteroid.
+ */
 public class Player {
-    //This is if the shuttle collided with asteroid.
+    /**
+     * This is if the shuttle collided with two asteroid.
+     */
     public void collide() {
         collideForPlayer(asteroid);
 
         collideForPlayer(bigAsteroid);
     }
 
+    /**
+     * This function select check of certain asteroid.
+     * @param asteroid select check of certain asteroid.
+     */
     public void collideForPlayer(ArrayList<Node> asteroid) {
         for (int i = 0; i < rocket.size(); i++) {
             for (int j = 0; j < asteroid.size(); j++) {
@@ -70,6 +80,9 @@ public class Player {
         }
     }
 
+    /**
+     * change to the end page.
+     */
     public void showTheEndPage() {
         gameStage.close();
         endStage.show();

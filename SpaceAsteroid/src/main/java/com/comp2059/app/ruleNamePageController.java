@@ -1,4 +1,4 @@
-package com.comp2059.app.controller;
+package com.comp2059.app;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,20 +13,31 @@ import static com.comp2059.app.gameStageF2A.showGamePage;
 import static com.comp2059.app.informationStore.timeBeginGame;
 import static com.comp2059.app.informationStore.userName;
 
+/**
+ * This class is the controller of rule and name page.
+ */
 public class ruleNamePageController {
+    /**
+     * The text area where we get user's input.
+     */
     @FXML
     TextField userNameField = new TextField();
 
-
+    /**
+     * Close rule page and return to start page.
+     */
     @FXML
-    public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
+    public void onClickMoveToStartPage() {
         ruleNameStage.close();
         rankingStage.close();
         startStage.show();
     }
 
+    /**
+     * Check the input name and begin the game.
+     */
     @FXML
-    public void onClickMoveToPlay(MouseEvent mouseEvent) throws IOException {
+    public void onClickMoveToPlay() {
         if (userNameField.getText().isEmpty()) {
             Alert error = new Alert(Alert.AlertType.ERROR);
             error.setTitle("Entry Error");
@@ -47,11 +58,5 @@ public class ruleNamePageController {
         ruleNameStage.close();
         timeBeginGame = new Date();
         showGamePage();
-//        start();
-    }
-
-    @FXML
-    private void handleTextFieldAction() {
-        System.out.println(userNameField.getText());
     }
 }

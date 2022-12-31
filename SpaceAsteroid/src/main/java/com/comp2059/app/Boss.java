@@ -6,19 +6,31 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
-import static com.comp2059.app.controller.appearanceController.*;
+import static com.comp2059.app.appearanceController.*;
 import static com.comp2059.app.informationStore.*;
 
+/**
+ * This class is for boss.
+ */
 public class Boss {
+    /**
+     * Boss's appearance.
+     */
     Image imgBoss = bossRain;
 
+    /**
+     * set the boss's hp.
+     * Linked with score.
+     */
     public static void initialBossHp(){
-        bossHP=Math.floorDiv(score,5);
+        bossHP=Math.floorDiv(score,2);
     }
 
+    /**
+     * Create boss.
+     */
     public void CreateBoss() {
         bossCounter++;
         bossHP=5+bossCounter;
@@ -28,7 +40,9 @@ public class Boss {
         root.getChildren().add(newBoss);
     }
 
-    //This is if the laser beam collided with asteroid it will cause and explosion and you will gain two points
+    /**
+     * This is if the laser beam collided with boss it will cause and explosion and you will gain two points.
+     */
     public void collide() {
         for (int i = 0; i < weapons.size(); i++) {
             for (int j = 0; j<bossArray.size();j++) {
@@ -41,6 +55,11 @@ public class Boss {
         }
     }
 
+    /**
+     * This is if the laser beam collided with boss it will cause and explosion.
+     * @param i position of weapon
+     * @param j position of boss
+     */
     public void collideCheckBoss(int i, int j) {
         Image imgExplosion = new Image(Objects.requireNonNull(getClass().getResource("img/explosion.gif")).toExternalForm());
         ImageView imgViewExplosion = new ImageView(imgExplosion);

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controller.rankingController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.rankingController">
    <children>
       <Button fx:id="Play" layoutX="720.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="80.0" prefWidth="150.0" text="PLAY AGAIN" />
       <Button fx:id="Exit" layoutX="720.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="80.0" prefWidth="150.0" text="EXIT NOW" />

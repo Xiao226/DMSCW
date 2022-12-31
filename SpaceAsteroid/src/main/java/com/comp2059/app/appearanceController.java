@@ -1,28 +1,45 @@
-package com.comp2059.app.controller;
+package com.comp2059.app;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import static com.comp2059.app.SpaceAsteroidApplication.appearanceStage;
 import static com.comp2059.app.SpaceAsteroidApplication.startStage;
 import static com.comp2059.app.informationStore.beamColor;
 
+/**
+ * This class is the controller for appearance page.
+ */
 public class appearanceController {
+    /**
+     * This is the store of ship image.
+     */
     public static Image shipSkinFinal;
+    /**
+     * This is the store of background image.
+     */
     public static Image backgroundFinal;
+    /**
+     * This is the store of big asteroid image.
+     */
     public static Image bigAFinal;
+    /**
+     * This is the store of small asteroid image.
+     */
     public static Image smallAFinal;
+    /**
+     * This is the store of boss image.
+     */
     public static Image bossRain;
 
+    // set initial image
     static {
         try {
             shipSkinFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/ship/blue.png"));
@@ -30,7 +47,7 @@ public class appearanceController {
             e.printStackTrace();
         }
     }
-
+    // set initial image
     static {
         try {
             backgroundFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/background/background.png"));
@@ -38,7 +55,7 @@ public class appearanceController {
             e.printStackTrace();
         }
     }
-
+    // set initial image
     static {
         try {
             bigAFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/big_asteroid.png"));
@@ -46,7 +63,7 @@ public class appearanceController {
             e.printStackTrace();
         }
     }
-
+    // set initial image
     static {
         try {
             smallAFinal = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/asteroid/asteroid.png"));
@@ -54,7 +71,7 @@ public class appearanceController {
             e.printStackTrace();
         }
     }
-
+    // set initial image
     static {
         try {
             bossRain = new Image(new FileInputStream("src/main/resources/com/comp2059/app/img/boss/boss.png"));
@@ -63,33 +80,80 @@ public class appearanceController {
         }
     }
 
+    /**
+     * the pattern from FXML file.
+     * used to list the values of ship's skin.
+     */
     @FXML
     ComboBox<String> skin;
+    /**
+     * the pattern from FXML file.
+     * used to list the values of background.
+     */
     @FXML
     ComboBox<String> background;
+    /**
+     * the pattern from FXML file.
+     * used to list the values of color of beam.
+     */
     @FXML
     ComboBox<String> color;
+    /**
+     * the pattern from FXML file.
+     * used to list the values of small asteroid.
+     */
     @FXML
     ComboBox<String> smallA;
+    /**
+     * the pattern from FXML file.
+     * used to list the values of big asteroid.
+     */
     @FXML
     ComboBox<String> bigA;
+    /**
+     * the pattern from FXML file.
+     * used to show the effect of current big asteroid.
+     */
     @FXML
     ImageView bigAs;
+    /**
+     * the pattern from FXML file.
+     * used to show the effect of current small asteroid.
+     */
     @FXML
     ImageView smallAs;
+    /**
+     * the pattern from FXML file.
+     * used to show the effect of current background.
+     */
     @FXML
     ImageView backG;
+    /**
+     * the pattern from FXML file.
+     * used to show the effect of current ship.
+     */
     @FXML
     ImageView ship;
+    /**
+     * the pattern from FXML file.
+     * used to show the effect of current beam.
+     */
     @FXML
     Rectangle beam;
 
+    /**
+     * This function is to set the action of return to the start page.
+     */
     @FXML
-    public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
+    public void onClickMoveToStartPage() {
         appearanceStage.close();
         startStage.show();
     }
 
+    /**
+     * Set the ComboBox's values of ship skins and get user's selection.
+     * @throws FileNotFoundException can't find image.
+     */
     @FXML
     public void onMouseClickSkin() throws FileNotFoundException {
         String sellect = skin.getSelectionModel().getSelectedItem();
@@ -120,7 +184,10 @@ public class appearanceController {
         ship.setImage(selectedFhoto);
         shipSkinFinal = selectedFhoto;
     }
-
+    /**
+     * Set the ComboBox's values of background and get user's selection.
+     * @throws FileNotFoundException can't find image.
+     */
     @FXML
     public void onMouseClickBack() throws FileNotFoundException {
         String sellect = background.getSelectionModel().getSelectedItem();
@@ -156,6 +223,11 @@ public class appearanceController {
         backgroundFinal = select;
     }
 
+    /**
+     * Set the ComboBox's values of beam color and get user's selection.
+     * @throws FileNotFoundException can't find image.
+     */
+    @FXML
     public void onMouseClickColor() {
         String sellect = color.getSelectionModel().getSelectedItem();
         switch (sellect) {
@@ -172,6 +244,10 @@ public class appearanceController {
         beam.setFill(beamColor);
     }
 
+    /**
+     * Set the ComboBox's values of big asteroid and get user's selection.
+     * @throws FileNotFoundException can't find image.
+     */
     @FXML
     public void onMouseClickBig() throws FileNotFoundException {
         String sellect = bigA.getSelectionModel().getSelectedItem();
@@ -194,6 +270,10 @@ public class appearanceController {
 
     }
 
+    /**
+     * Set the ComboBox's values of small asteroid and get user's selection.
+     * @throws FileNotFoundException can't find image.
+     */
     @FXML
     public void onMouseClickSmall() throws FileNotFoundException {
         String sellect = smallA.getSelectionModel().getSelectedItem();

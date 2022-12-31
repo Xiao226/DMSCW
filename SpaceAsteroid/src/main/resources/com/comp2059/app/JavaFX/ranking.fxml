@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controller.rankingController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.rankingController">
    <children>
       <TextArea fx:id="ranking" layoutX="25.0" layoutY="26.0" prefHeight="672.0" prefWidth="998.0" text="This is the ranking list, click the REFRESH bottom to load data from stored file.&#10;&#10;&#10;Below is the example of ranking.&#10;&#10;Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score&#10;Smile,3:50,233,4,233&#10;Fish,1:30,20,0,66&#10;" wrapText="true">
          <font>

@@ -12,17 +12,22 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
 import static com.comp2059.app.SpaceAsteroidApplication.gameStage;
-import static com.comp2059.app.controller.appearanceController.shipSkinFinal;
+import static com.comp2059.app.appearanceController.shipSkinFinal;
 import static com.comp2059.app.informationStore.*;
 
+/**
+ * This java class is for the game stage.
+ * From Team F2A.
+ */
 public class gameStageF2A {
-
-    public static void showGamePage() throws IOException {
+    /**
+     * this function is to initial the game page and set the game.
+     */
+    public static void showGamePage(){
         initialGame();
         txtscore = new Text(1000, 50, "Score: " + score+" + "+scoreBoss);
         txtscore.setFill(Color.WHITE);
@@ -87,6 +92,9 @@ public class gameStageF2A {
         timer = new AnimationTimer() {
             double delta = 4;
 
+            /**
+             * this function is for the main part of game.
+             */
             @Override
             public void handle(long arg0) {
                 double currX = imgviewShuttle.getLayoutX();
@@ -130,6 +138,11 @@ public class gameStageF2A {
                 boss.collide();
             }
 
+            /**
+             * This function is to set the position of player after one movement.
+             * @param currX current x position of player
+             * @return the result position of x after move
+             */
             public double getCurrX(double currX) {
                 if (imgviewShuttle.getLayoutX() < 1120 && imgviewShuttle.getLayoutX() > 0) {
                     if (goLeft) currX -= delta;
@@ -142,6 +155,11 @@ public class gameStageF2A {
                 return currX;
             }
 
+            /**
+             * This function is to set the position of player after one movement.
+             * @param currY current y position of player
+             * @return the result position of y after move
+             */
             public double getCurrY(double currY) {
                 if (imgviewShuttle.getLayoutY() < 660 && imgviewShuttle.getLayoutY() > 0) {
                     if (goUp) currY -= delta;
@@ -157,6 +175,9 @@ public class gameStageF2A {
         timer.start();
     }
 
+    /**
+     * This function is to reset some store to avoid bug caused by reopen the game.
+     */
     private static void initialGame() {
 //        reset the store of used
         goUp = false;

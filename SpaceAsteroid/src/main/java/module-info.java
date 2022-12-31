@@ -7,6 +7,4 @@ module com.vexed.vexed {
 
     opens com.comp2059.app to javafx.fxml;
     exports com.comp2059.app;
-    exports com.comp2059.app.controller;
-    opens com.comp2059.app.controller to javafx.fxml;
 }

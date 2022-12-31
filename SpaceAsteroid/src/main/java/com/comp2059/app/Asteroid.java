@@ -1,5 +1,6 @@
 package com.comp2059.app;
 
+
 import javafx.animation.PauseTransition;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -9,14 +10,27 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static com.comp2059.app.controller.appearanceController.bigAFinal;
-import static com.comp2059.app.controller.appearanceController.smallAFinal;
+import static com.comp2059.app.appearanceController.bigAFinal;
+import static com.comp2059.app.appearanceController.smallAFinal;
 import static com.comp2059.app.informationStore.*;
-
+/**
+ * This is a java class for asteroid.
+ * <p>
+ *      This java class contain the generate function, movement control function, destroy judgement function of asteroid.
+ * </p>
+ * */
 public class Asteroid {
+    /**
+     * This is the image for small asteroids.
+     */
     Image imgAsteroid = smallAFinal;
+    /**
+     * This is the image for big asteroids.
+     */
     Image imgBigAsteroid = bigAFinal;
-
+    /**
+     * This is the function for generate asteroids.
+     */
     public void CreateAsteroid() {
         asteroidCounter++;
         asteroidCounter2++;
@@ -26,6 +40,10 @@ public class Asteroid {
 
     }
 
+    /**
+     * This is function of generate big asteroids.
+     * @param score The number of generated asteroids is linked with the score.
+     */
     private void collideForBig(int score) {
         // every time the score increase 25 the big number increase 1
         int time=Math.floorDiv(score,25);
@@ -35,7 +53,10 @@ public class Asteroid {
         }
 
     }
-
+    /**
+     * This is function of generate small asteroids.
+     * @param score The number of generated asteroids is linked with the score.
+     */
     private void collideForSmall(int score) {
         int time=Math.floorDiv(score,25);
         if (time<0)time=0;
@@ -44,6 +65,13 @@ public class Asteroid {
         }
     }
 
+    /**
+     * This is function for generate asteroids.
+     * @param asteroidCounter2 used like a timer.
+     * @param imgAsteroid the asteroid image.
+     * @param h judge when asteroids will generate.
+     * @param bigAsteroid the list of asteroids saved.
+     */
     private void collideForAsteroid(int asteroidCounter2, Image imgAsteroid, double h, ArrayList<Node> bigAsteroid) {
         if (asteroidCounter2 % modifier == 0) {
             Node newAsteroid = new ImageView(imgAsteroid);
@@ -52,9 +80,13 @@ public class Asteroid {
             root.getChildren().add(newAsteroid);
         }
     }
-
-
-    //This methods cause the asteroids to move vertically downwards, the higher your score is the faster the asteroids will move; to increase difficulty
+    /**
+     * This method cause the asteroids to move vertically downwards.
+     * <p>
+     * The higher your score is the faster the asteroids will move.
+     * To increase difficulty.
+     * </p>
+     */
     public void moveAsteroid() {
         if (score < 40) {
             moveAsteroidSingle(asteroid,speed);
@@ -70,6 +102,12 @@ public class Asteroid {
                 moveAsteroidSingle(bigAsteroid,speed+6);
         }
     }
+
+    /**
+     * This function is move selected size of asteroid in chosen speed.
+     * @param arrayAsteroid Input the chosen asteroid list
+     * @param speed_Situation Input the speed.
+     */
     private void moveAsteroidSingle(ArrayList<Node> arrayAsteroid,int speed_Situation){
         for (int i = 0; i < arrayAsteroid.size(); i++) {
             if (arrayAsteroid.get(i).getLayoutX() > -arrayAsteroid.get(i).getBoundsInLocal().getWidth()) {
@@ -82,6 +120,10 @@ public class Asteroid {
     }
 
     //This is if the laser beam collided with asteroid it will cause and explosion and you will gain two points
+
+    /**
+     * This function is to check whether there are collided between weapons and asteroid.
+     */
     public void collide() {
         for (int i = 0; i < weapons.size(); i++) {
             for (int j = 0; j < asteroid.size(); j++) {
@@ -105,6 +147,12 @@ public class Asteroid {
         }
     }
 
+    /**
+     * This function is to deal with the collided situation.
+     * @param i the position of weapons
+     * @param j the position of asteroids
+     * @param asteroid the list of asteroids
+     */
     public void collideCheck(int i, int j, ArrayList<Node> asteroid) {
         Image imgExplosion = new Image(Objects.requireNonNull(getClass().getResource("img/explosion.gif")).toExternalForm());
         ImageView imgViewExplosion = new ImageView(imgExplosion);

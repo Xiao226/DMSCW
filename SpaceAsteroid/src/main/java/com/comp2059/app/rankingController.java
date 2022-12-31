@@ -1,4 +1,4 @@
-package com.comp2059.app.controller;
+package com.comp2059.app;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -13,14 +13,29 @@ import static com.comp2059.app.gameStageF2A.showGamePage;
 import static com.comp2059.app.informationStore.*;
 import static com.comp2059.app.rankingStore.*;
 
+/**
+ * This class is the controller of ranking page.
+ */
 public class rankingController {
+    /**
+     * Display the ranking list.
+     */
     @FXML
     TextArea ranking = new TextArea();
+    /**
+     * Display the user's records.
+     */
     @FXML
     Label records = new Label();
+    /**
+     * Display  guide information.
+     */
     @FXML
     Label words=new Label();
 
+    /**
+     * Add current record into the ranking list and display it.
+     */
     @FXML
     public void onClickInsert() {
         ranking.setText(preparePrint());
@@ -28,32 +43,48 @@ public class rankingController {
         ranking.setText(preparePrint());
     }
 
+    /**
+     * Get ranking list and display it.
+     */
     @FXML
     public void onClickRefresh() {
         ranking.setText(preparePrint());
         words.setText("Your Record: ");
         records.setText(userName+", "+destroyedAsteroidNumber+", "+ destroyedBossNumber+ ", "+timeCalculate(timeBeginGame, timeEndGame)+", "+ (score+scoreBoss));
     }
+
+    /**
+     * Display ranking list.
+     */
     @FXML
     public void onClickRefreshSingle() {
         ranking.setText(preparePrint());
     }
 
+    /**
+     * Close current page and return to Start page.
+     */
     @FXML
-    public void onClickMoveToStartPage(MouseEvent mouseEvent) throws IOException {
+    public void onClickMoveToStartPage() {
         ruleNameStage.close();
         rankingStage.close();
         startStage.show();
     }
 
+    /**
+     * Shut down the whole project.
+     */
     @FXML
-    public void shotDown(MouseEvent mouseEvent) throws IOException {
+    public void shotDown() {
         writeTheRankingFile();
         Platform.exit();
     }
 
+    /**
+     * Restart the game.
+     */
     @FXML
-    public void onClickReMoveToGame(MouseEvent mouseEvent) throws IOException {
+    public void onClickReMoveToGame() {
         endStage.close();
         lifeUsed += 1;
         gamePageTitle = "This is your " + (lifeUsed + 1) + " try. Enjoy it.";

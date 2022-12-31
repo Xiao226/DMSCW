@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: rad;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controller.ruleNamePageController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: rad;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.ruleNamePageController">
    <children>
       <Button fx:id="Play" layoutX="855.0" layoutY="508.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToPlay" prefHeight="60.0" prefWidth="100.0" text="PLAY" />
       <Button fx:id="ReturnStart" layoutX="856.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToStartPage" prefHeight="60.0" prefWidth="100.0" text="RETURN" />
-      <TextField fx:id="userNameField" layoutX="645.0" layoutY="169.0" onAction="#handleTextFieldAction" prefHeight="60.0" prefWidth="206.0" />
+      <TextField fx:id="userNameField" layoutX="645.0" layoutY="169.0" prefHeight="60.0" prefWidth="206.0" />
       <Label layoutX="638.0" layoutY="57.0" prefHeight="86.0" prefWidth="323.0" text="Type your name here" textFill="#e13434">
          <font>
             <Font size="22.0" />
