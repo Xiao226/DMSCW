@@ -32,7 +32,7 @@
             <Image url="@../img/asteroid/big_asteroid.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="color" layoutX="900.0" layoutY="440.0" onAction="#onMouseClickColor" prefHeight="26.0" prefWidth="230.0" promptText="Choose your laser beam color">
+      <ComboBox fx:id="color" layoutX="900.0" layoutY="397.0" onAction="#onMouseClickColor" prefHeight="26.0" prefWidth="230.0" promptText="Choose your laser beam color">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="BLUE" />
@@ -47,7 +47,7 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <ComboBox fx:id="skin" layoutX="900.0" layoutY="480.0" onAction="#onMouseClickSkin" prefHeight="26.0" prefWidth="230.0" promptText="Choose your ship">
+      <ComboBox fx:id="skin" layoutX="900.0" layoutY="444.0" onAction="#onMouseClickSkin" prefHeight="26.0" prefWidth="230.0" promptText="Choose your ship">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />
@@ -60,7 +60,7 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <ComboBox fx:id="background" layoutX="900.0" layoutY="520.0" onAction="#onMouseClickBack" prefHeight="26.0" prefWidth="230.0" promptText="Choose your background">
+      <ComboBox fx:id="background" layoutX="900.0" layoutY="493.0" onAction="#onMouseClickBack" prefHeight="26.0" prefWidth="230.0" promptText="Choose your background">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />
@@ -74,7 +74,7 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <ComboBox fx:id="bigA" layoutX="900.0" layoutY="560.0" onAction="#onMouseClickBig" prefWidth="230.0" promptText="Choose big asteroid">
+      <ComboBox fx:id="bigA" layoutX="900.0" layoutY="546.0" onAction="#onMouseClickBig" prefWidth="230.0" promptText="Choose big asteroid">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />
@@ -84,7 +84,7 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <ComboBox fx:id="smallA" layoutX="900.0" layoutY="600.0" onAction="#onMouseClickSmall" prefWidth="230.0" promptText="Choose small asteroid">
+      <ComboBox fx:id="smallA" layoutX="900.0" layoutY="597.0" onAction="#onMouseClickSmall" prefWidth="230.0" promptText="Choose small asteroid">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Initial" />

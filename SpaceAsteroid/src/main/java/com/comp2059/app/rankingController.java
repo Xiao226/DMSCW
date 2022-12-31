@@ -21,7 +21,7 @@ public class rankingController {
      * Display the ranking list.
      */
     @FXML
-    TextArea ranking = new TextArea();
+    Label ranking = new Label();
     /**
      * Display the user's records.
      */
