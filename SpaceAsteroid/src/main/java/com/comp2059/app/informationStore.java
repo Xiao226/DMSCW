@@ -3,6 +3,8 @@ package com.comp2059.app;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -166,6 +168,14 @@ public record informationStore() {
      * Variable save the player controlled model.
      */
     public static ImageView imgviewShuttle;
+    /**
+     * hp line for player
+     */
+    public static ProgressBar playerHp;
+    /**
+     * store the player's hp
+     */
+    public static int playHp=5;
     /**
      * Variable that store if there is a boss in the game page.
      */

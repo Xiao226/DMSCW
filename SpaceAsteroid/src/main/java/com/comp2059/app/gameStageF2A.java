@@ -3,6 +3,7 @@ package com.comp2059.app;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -180,6 +181,7 @@ public class gameStageF2A {
      */
     private static void initialGame() {
 //        reset the store of used
+        playHp=5;
         goUp = false;
         goDown = false;
         goLeft = false;
