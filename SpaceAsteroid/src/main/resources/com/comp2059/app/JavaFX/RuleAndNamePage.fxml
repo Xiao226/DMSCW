@@ -6,21 +6,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: rad;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.ruleNamePageController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.ruleNamePageController">
    <children>
-      <Button fx:id="Play" layoutX="855.0" layoutY="508.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToPlay" prefHeight="60.0" prefWidth="100.0" text="PLAY" />
-      <Button fx:id="ReturnStart" layoutX="856.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToStartPage" prefHeight="60.0" prefWidth="100.0" text="RETURN" />
-      <TextField fx:id="userNameField" layoutX="645.0" layoutY="169.0" prefHeight="60.0" prefWidth="206.0" />
-      <Label layoutX="638.0" layoutY="57.0" prefHeight="86.0" prefWidth="323.0" text="Type your name here" textFill="#e13434">
+      <Button fx:id="Play" layoutX="658.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToPlay" prefHeight="100.0" prefWidth="206.0" text="PLAY">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Button fx:id="ReturnStart" layoutX="274.0" layoutY="536.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToStartPage" prefHeight="100.0" prefWidth="175.0" text="RETURN">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <TextField fx:id="userNameField" layoutX="658.0" layoutY="311.0" prefHeight="60.0" prefWidth="206.0" />
+      <Label layoutX="637.0" layoutY="216.0" prefHeight="86.0" prefWidth="323.0" text="Type your name here" textFill="#e13434">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label ellipsisString="" layoutX="42.0" layoutY="40.0" prefHeight="499.0" prefWidth="451.0" text="Here are the rules of the game:  You control a space shuttle flying in the space. There will generate some asteroids in your path. You must dodging them  or destroy them with your laser beam.  Every 60s there will open an eye at the top. Before you destroy it, you will not get score from destroying the asteroids and if your beam reach the board you will lose score. Every time you attached the eye, it will flash to random place and you will gain additional score. Controls: Left Arrow=Move Left, Right Arrow=Move Right, Up Arrow= Move Up,  Down Arrow=Move Down, Space=Fire. " wrapText="true">
+      <Label ellipsisString="" layoutX="48.0" layoutY="29.0" prefHeight="499.0" prefWidth="451.0" text="Here are the rules of the game:  You control a space shuttle flying in the space. There will generate some asteroids in your path. You must dodging them  or destroy them with your laser beam.  Every 60s there will open an eye at the top. Before you destroy it, you will not get score from destroying the asteroids and if your beam reach the board you will lose score. Every time you attached the eye, it will flash to random place and you will gain additional score. Controls: Left Arrow=Move Left, Right Arrow=Move Right, Up Arrow= Move Up,  Down Arrow=Move Down, Space=Fire. " textFill="#fdf9f9" wrapText="true">
          <font>
-            <Font size="15.0" />
+            <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="528.0" layoutY="274.0" prefHeight="66.0" prefWidth="441.0" text="Enter your name into the block (no special symbols or digits are allowed) and click the play bottom to start your journal. " wrapText="true" />
+      <Label layoutX="530.0" layoutY="391.0" prefHeight="66.0" prefWidth="441.0" text="Enter your name into the block (no special symbols or digits are allowed) and click the play bottom to start your journal. " textFill="#fbfafa" wrapText="true" />
    </children>
 </AnchorPane>
