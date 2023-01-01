@@ -33,7 +33,7 @@ public class Boss {
      */
     public void CreateBoss() {
         bossCounter++;
-        bossHP=5+bossCounter;
+        bossHP=2+bossCounter;
         Node newBoss = new ImageView(imgBoss);
         newBoss.relocate(570, 100);
         bossArray.add(newBoss);

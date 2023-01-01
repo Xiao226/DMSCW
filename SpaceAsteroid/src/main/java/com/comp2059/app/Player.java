@@ -42,7 +42,11 @@ public class Player {
         for (int i = 0; i < rocket.size(); i++) {
             for (int j = 0; j < asteroid.size(); j++) {
                 if (rocket.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
-                    gameOver = true;
+                    playHp-=0.2;
+                    playerHp.setProgress(playHp);
+                    if (playHp<0.1){
+                        gameOver = true;
+                    }
                     Image imgExplosion = new Image(Objects.requireNonNull(getClass().getResource("img/explosion.gif")).toExternalForm());
                     ImageView imgviewExplosion = new ImageView(imgExplosion);
                     imgviewExplosion.relocate(rocket.get(i).getLayoutX(), rocket.get(i).getLayoutY());
@@ -52,29 +56,34 @@ public class Player {
                     wait.play();
                     asteroid.remove(j);
                     root.getChildren().add(imgviewExplosion);
-                    root.getChildren().remove(rocket.get(i));
-                    rocket.remove(i);
-                    if (difficultLevel) {
-                        timer.stop();
+                    if (gameOver) {
+                        root.getChildren().remove(rocket.get(i));
+                        root.getChildren().remove(playerHp);
+                        if (difficultLevel) {
+                            timer.stop();
+                        }
+                        rocket.remove(i);
+                        Text txtGameOver = new Text(500, 360, "Game Over!");
+                        txtGameOver.setFill(Color.RED);
+                        Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
+                        txtGameOver.setFont(font3);
+                        root.getChildren().add(txtGameOver);
+                        Button btnQuit = new Button("Quit");
+                        btnQuit.setScaleX(6);
+                        btnQuit.setScaleY(4);
+                        btnQuit.setTextFill(Color.YELLOW);
+                        btnQuit.setTranslateX(1000);
+                        btnQuit.setTranslateY(600);
+                        btnQuit.setStyle("-fx-background-color: red;");
+                        timeEndGame = new Date();
+                        // initial the rank
+                        root.getChildren().add(btnQuit);
+                        btnQuit.setOnAction(e ->
+                                showTheEndPage()
+                        );
+                    }else {
+                        rocket.get(i).relocate(570,450);
                     }
-                    Text txtGameOver = new Text(500, 360, "Gameover!");
-                    txtGameOver.setFill(Color.RED);
-                    Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
-                    txtGameOver.setFont(font3);
-                    root.getChildren().add(txtGameOver);
-                    Button btnQuit = new Button("Quit");
-                    btnQuit.setScaleX(6);
-                    btnQuit.setScaleY(4);
-                    btnQuit.setTextFill(Color.YELLOW);
-                    btnQuit.setTranslateX(1000);
-                    btnQuit.setTranslateY(600);
-                    btnQuit.setStyle("-fx-background-color: red;");
-                    timeEndGame = new Date();
-                    // initial the rank
-                    root.getChildren().add(btnQuit);
-                    btnQuit.setOnAction(e ->
-                            showTheEndPage()
-                    );
                 }
             }
         }
