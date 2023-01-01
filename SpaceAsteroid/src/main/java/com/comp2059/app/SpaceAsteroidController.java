@@ -50,7 +50,22 @@ public class SpaceAsteroidController {
         startStage.close();
         appearanceStage.show();
     }
-
+    /**
+     * Close info page and return to start page.
+     */
+    @FXML
+    public void onClickMoveToStartPage() {
+        info.close();
+        startStage.show();
+    }
+    /**
+     * Close start page and turn to info page.
+     */
+    @FXML
+    public void onClickMoveToInfoPage() {
+        startStage.close();
+        info.show();
+    }
     /**
      * Go to ranking showing page.
      */

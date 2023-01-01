@@ -68,6 +68,7 @@ public class rankingController {
     public void onClickMoveToStartPage() {
         ruleNameStage.close();
         rankingStage.close();
+        endStage.close();
         startStage.show();
     }
 

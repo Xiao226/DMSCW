@@ -42,6 +42,10 @@ public class SpaceAsteroidApplication extends Application {
      */
     public static Stage gameStage;
     /**
+     * save the info stage.
+     */
+    public static Stage info;
+    /**
      * save the content of start stage.
      */
     public static Parent startPage;
@@ -57,6 +61,10 @@ public class SpaceAsteroidApplication extends Application {
      * save the content of ranking stage.
      */
     public static Parent rankingPage;
+    /**
+     * save the content of info stage.
+     */
+    public static Parent infoPage;
     /**
      * save the content of choose appearance stage.
      */
@@ -97,6 +105,7 @@ public class SpaceAsteroidApplication extends Application {
         initialAppearancePage();
         initialEndPage();
         getInformation();
+        initialInfoPage();
     }
 
     /**
@@ -110,7 +119,17 @@ public class SpaceAsteroidApplication extends Application {
         startStage.setTitle("Welcome to F2A's Game");
         startStage.setScene(new Scene(startPage, wideF2A, highF2A));// size of the window
     }
-
+    /**
+     * Initial the start page.
+     * @throws IOException can't find file exception.
+     */
+    public void initialInfoPage() throws IOException {
+        info = new Stage();
+        info.setResizable(false);
+        infoPage = FXMLLoader.load(getClass().getResource("JavaFX/info.fxml"));
+        info.setTitle("Welcome");
+        info.setScene(new Scene(infoPage, wideF2A, highF2A));// size of the window
+    }
     /**
      * Initial the end page.
      * @throws IOException can't find file exception.
