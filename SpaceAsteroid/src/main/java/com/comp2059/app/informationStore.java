@@ -175,7 +175,7 @@ public record informationStore() {
     /**
      * store the player's hp
      */
-    public static int playHp=5;
+    public static double playHp=1.0;
     /**
      * Variable that store if there is a boss in the game page.
      */

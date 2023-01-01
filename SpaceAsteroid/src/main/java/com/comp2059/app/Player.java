@@ -42,9 +42,9 @@ public class Player {
         for (int i = 0; i < rocket.size(); i++) {
             for (int j = 0; j < asteroid.size(); j++) {
                 if (rocket.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
-                    playHp-=1;
-                    System.out.println(playHp);
-                    if (playHp==0){
+                    playHp-=0.2;
+                    playerHp.setProgress(playHp);
+                    if (playHp<0.1){
                         gameOver = true;
                     }
                     Image imgExplosion = new Image(Objects.requireNonNull(getClass().getResource("img/explosion.gif")).toExternalForm());
@@ -58,11 +58,12 @@ public class Player {
                     root.getChildren().add(imgviewExplosion);
                     if (gameOver) {
                         root.getChildren().remove(rocket.get(i));
+                        root.getChildren().remove(playerHp);
                         if (difficultLevel) {
                             timer.stop();
                         }
                         rocket.remove(i);
-                        Text txtGameOver = new Text(500, 360, "Gameover!");
+                        Text txtGameOver = new Text(500, 360, "Game Over!");
                         txtGameOver.setFill(Color.RED);
                         Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
                         txtGameOver.setFont(font3);

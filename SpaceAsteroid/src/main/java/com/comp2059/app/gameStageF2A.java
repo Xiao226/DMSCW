@@ -40,10 +40,12 @@ public class gameStageF2A {
         rocket.add(imgviewShuttle);
         Space space = new Space();
         space.Create();
-
         imgviewShuttle.setLayoutX(570);
         imgviewShuttle.setLayoutY(450);
-
+        playerHp=new ProgressBar(1.0);
+        playerHp.setLayoutX(570);
+        playerHp.setLayoutY(550);
+        root.getChildren().add(playerHp);
         root.getChildren().add(imgviewShuttle);
         root.getChildren().add(txtscore);
 
@@ -122,6 +124,7 @@ public class gameStageF2A {
                 }
 
                 imgviewShuttle.relocate(currX, currY);
+                playerHp.relocate(currX,currY+100);
                 Player shuttle = new Player();
                 Fire fire = new Fire();
                 fire.fire(dShoot);
@@ -181,7 +184,7 @@ public class gameStageF2A {
      */
     private static void initialGame() {
 //        reset the store of used
-        playHp=5;
+        playHp=1.0;
         goUp = false;
         goDown = false;
         goLeft = false;
