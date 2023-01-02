@@ -20,12 +20,12 @@
          </font>
       </Label>
       <Button layoutX="288.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickInsert" prefHeight="80.0" prefWidth="218.0" style="-fx-background-color: #C0C0C0;" text="Add your record" />
-      <Label fx:id="words" layoutX="558.0" layoutY="178.0" prefHeight="69.0" prefWidth="175.0">
+      <Label fx:id="words" layoutX="444.0" layoutY="178.0" prefHeight="69.0" prefWidth="383.0">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="records" layoutX="558.0" layoutY="247.0" prefHeight="80.0" prefWidth="415.0">
+      <Label fx:id="records" layoutX="444.0" layoutY="247.0" prefHeight="80.0" prefWidth="548.0">
          <font>
             <Font size="38.0" />
          </font>
