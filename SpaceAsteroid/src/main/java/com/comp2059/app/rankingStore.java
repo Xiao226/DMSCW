@@ -136,7 +136,7 @@ public class rankingStore {
     }
 
     /**
-     * Judge two String type time is same or not.
+     * Judge previous String type time is bigger or not.
      * @param in one time.
      * @param old another time.
      * @return true or false.
