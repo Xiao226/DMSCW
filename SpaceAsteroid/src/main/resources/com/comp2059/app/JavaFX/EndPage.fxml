@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.rankingController">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.rankingController">
    <children>
-      <Button fx:id="Play" layoutX="766.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A;" text="PLAY AGAIN" />
-      <Button fx:id="Exit" layoutX="766.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A;" text="EXIT NOW" />
-      <Button layoutX="68.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickRefresh" prefHeight="80.0" prefWidth="218.0" style="-fx-background-color: #C0C0C0;" text="Load data" />
-      <Label fx:id="ranking" layoutX="68.0" layoutY="178.0" prefHeight="392.0" prefWidth="614.0" style="-fx-background-color: #DCDCDC;" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score" textFill="#fc9090">
+      <Button fx:id="Play" layoutX="1014.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A;" text="PLAY AGAIN" />
+      <Button fx:id="Exit" layoutX="1014.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A;" text="EXIT NOW" />
+      <Button layoutX="68.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickRefresh" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #C0C0C0;" text="Load data" />
+      <Label fx:id="ranking" layoutX="68.0" layoutY="178.0" prefHeight="392.0" prefWidth="580.0" style="-fx-background-color: #DCDCDC;" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score" textFill="#fc9090">
          <font>
             <Font size="16.0" />
          </font></Label>
@@ -19,17 +19,17 @@
             <Font size="83.0" />
          </font>
       </Label>
-      <Button layoutX="288.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickInsert" prefHeight="80.0" prefWidth="218.0" style="-fx-background-color: #C0C0C0;" text="Add your record" />
-      <Label fx:id="words" layoutX="444.0" layoutY="178.0" prefHeight="69.0" prefWidth="383.0">
+      <Button layoutX="401.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickInsert" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #C0C0C0;" text="Add your record" />
+      <Label fx:id="words" layoutX="651.0" layoutY="178.0" prefHeight="69.0" prefWidth="341.0">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="records" layoutX="444.0" layoutY="247.0" prefHeight="80.0" prefWidth="548.0">
+      <Label fx:id="records" layoutX="651.0" layoutY="247.0" prefHeight="80.0" prefWidth="543.0">
          <font>
-            <Font size="38.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="return" layoutX="766.0" layoutY="481.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToStartPage" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A #00FA9A #00FA9A #00FA9A;" text="RETURN" />
+      <Button fx:id="return" layoutX="1014.0" layoutY="481.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToStartPage" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A #00FA9A #00FA9A #00FA9A;" text="RETURN" />
    </children>
 </AnchorPane>

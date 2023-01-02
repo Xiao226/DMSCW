@@ -19,6 +19,9 @@
             <Image url="@../img/artwork.png" />
          </image>
       </ImageView>
-      <Label layoutX="113.0" layoutY="299.0" prefHeight="296.0" prefWidth="501.0" text="Build by Yibo Sun(fish), Xiaotian Zhang(smile). Have fun." />
+      <Label layoutX="443.0" layoutY="103.0" prefHeight="418.0" prefWidth="501.0" text="Group IntroductionOur team name is F2A, which comes from StarCraft. And our team members are Xiaotian ZHANG(20319043), and Yibo SUN(20320401). We together developed this game. We all love such games lie in the backgrounds of space war or space travelling, so it is quite enjoyable during the developing process." textFill="#90746e" wrapText="true">
+         <font>
+            <Font size="33.0" />
+         </font></Label>
    </children>
 </AnchorPane>
