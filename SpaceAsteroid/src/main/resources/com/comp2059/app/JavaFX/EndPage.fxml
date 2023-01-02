@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFFE0;" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.rankingController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.rankingController">
    <children>
       <Button fx:id="Play" layoutX="766.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#onClickReMoveToGame" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A;" text="PLAY AGAIN" />
       <Button fx:id="Exit" layoutX="766.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#shotDown" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #00FA9A;" text="EXIT NOW" />
       <Button layoutX="68.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#onClickRefresh" prefHeight="80.0" prefWidth="218.0" style="-fx-background-color: #C0C0C0;" text="Load data" />
-      <Label fx:id="ranking" layoutX="68.0" layoutY="178.0" prefHeight="392.0" prefWidth="614.0" style="-fx-background-color: #DCDCDC;" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score" textFill="#fc9090" textFill="#f5f3f3">
+      <Label fx:id="ranking" layoutX="68.0" layoutY="178.0" prefHeight="392.0" prefWidth="614.0" style="-fx-background-color: #DCDCDC;" text="Name, Destroyed Asreroid Number, Beaten Boss Number, Live Time, Score" textFill="#fc9090">
          <font>
             <Font size="16.0" />
          </font></Label>

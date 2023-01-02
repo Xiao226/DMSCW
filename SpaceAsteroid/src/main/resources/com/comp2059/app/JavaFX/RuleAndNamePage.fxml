@@ -22,11 +22,11 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label ellipsisString="" layoutX="48.0" layoutY="29.0" prefHeight="561.0" prefWidth="536.0" text="Here are the rules of the game: You control a space shuttle flying in the space. There will generate some asteroids in your path. You must dodging them  or destroy them with your laser beam.  Every 60s there will open an eye at the top. Before you destroy it, you will not get score from destroying the asteroids and if your beam reach the board you will lose score. Every time you attached the eye, it will flash to random place and you will gain additional score. Controls: Left Arrow=Move Left, Right Arrow=Move Right, Up Arrow= Move Up,  Down Arrow=Move Down, Space=Fire. " textFill="#4044c2" textFill="#fdf9f9" wrapText="true">
+      <Label ellipsisString="" layoutX="48.0" layoutY="29.0" prefHeight="561.0" prefWidth="536.0" text="Here are the rules of the game: You control a space shuttle flying in the space. There will generate some asteroids in your path. You must dodging them  or destroy them with your laser beam.  Every 60s there will open an eye at the top. Before you destroy it, you will not get score from destroying the asteroids and if your beam reach the board you will lose score. Every time you attached the eye, it will flash to random place and you will gain additional score. Controls: Left Arrow=Move Left, Right Arrow=Move Right, Up Arrow= Move Up,  Down Arrow=Move Down, Space=Fire. " textFill="#4044c2" wrapText="true">
          <font>
             <Font name="System Italic" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="528.0" layoutY="274.0" prefHeight="66.0" prefWidth="441.0" text="Enter your name into the block (no special symbols or digits are allowed) and click the play bottom to start your journal. " wrapText="true" />
+      <Label layoutX="645.0" layoutY="249.0" prefHeight="122.0" prefWidth="206.0" text="Enter your name into the block (no special symbols or digits are allowed) and click the play bottom to start your journal. " wrapText="true" />
    </children>
 </AnchorPane>

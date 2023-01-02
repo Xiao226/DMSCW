@@ -46,37 +46,13 @@ public class SpaceAsteroidApplication extends Application {
      */
     public static Stage info;
     /**
-     * save the content of start stage.
+     * save the size of page.
      */
-    public static Parent startPage;
-    /**
-     * save the content of end stage.
-     */
-    public static Parent endPage;
-    /**
-     * save the content of rule and name stage.
-     */
-    public static Parent ruleAndNamePage;
-    /**
-     * save the content of ranking stage.
-     */
-    public static Parent rankingPage;
-    /**
-     * save the content of info stage.
-     */
-    public static Parent infoPage;
-    /**
-     * save the content of choose appearance stage.
-     */
-    public static Parent appearancePage;
+    public final int wideF2A = 1200;
     /**
      * save the size of page.
      */
-    final int wideF2A = 1200;
-    /**
-     * save the size of page.
-     */
-    final int highF2A = 720;
+    public final int highF2A = 720;
 
     /**
      * The start of whole project.
@@ -115,7 +91,10 @@ public class SpaceAsteroidApplication extends Application {
     public void initialStartPage() throws IOException {
         startStage = new Stage();
         startStage.setResizable(false);
-        startPage = FXMLLoader.load(getClass().getResource("JavaFX/startPage.fxml"));
+        /**
+         * save the content of start stage.
+         */
+        Parent startPage = FXMLLoader.load(getClass().getResource("JavaFX/startPage.fxml"));
         startStage.setTitle("Welcome to F2A's Game");
         startStage.setScene(new Scene(startPage, wideF2A, highF2A));// size of the window
     }
@@ -126,7 +105,10 @@ public class SpaceAsteroidApplication extends Application {
     public void initialInfoPage() throws IOException {
         info = new Stage();
         info.setResizable(false);
-        infoPage = FXMLLoader.load(getClass().getResource("JavaFX/info.fxml"));
+        /**
+         * save the content of info stage.
+         */
+        Parent infoPage = FXMLLoader.load(getClass().getResource("JavaFX/info.fxml"));
         info.setTitle("Welcome");
         info.setScene(new Scene(infoPage, wideF2A, highF2A));// size of the window
     }
@@ -137,7 +119,10 @@ public class SpaceAsteroidApplication extends Application {
     public void initialEndPage() throws IOException {
         endStage = new Stage();
         endStage.setResizable(false);
-        endPage = FXMLLoader.load(getClass().getResource("JavaFX/EndPage.fxml"));
+        /**
+         * save the content of end stage.
+         */
+        Parent endPage = FXMLLoader.load(getClass().getResource("JavaFX/EndPage.fxml"));
         endStage.setTitle("Whoops you failed");
         endStage.setScene(new Scene(endPage, wideF2A, highF2A));// size of the window
     }
@@ -149,7 +134,10 @@ public class SpaceAsteroidApplication extends Application {
     public void initialRuleAndNamePage() throws IOException {
         ruleNameStage = new Stage();
         ruleNameStage.setResizable(false);
-        ruleAndNamePage = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("JavaFX/RuleAndNamePage.fxml")));
+        /**
+         * save the content of rule and name stage.
+         */
+        Parent ruleAndNamePage = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("JavaFX/RuleAndNamePage.fxml")));
         ruleNameStage.setTitle("Read the Rule and Enter Your Name");
         ruleNameStage.setScene(new Scene(ruleAndNamePage, wideF2A, highF2A));// size of the window
     }
@@ -161,7 +149,10 @@ public class SpaceAsteroidApplication extends Application {
     public void initialRankingPage() throws IOException {
         rankingStage = new Stage();
         rankingStage.setResizable(false);
-        rankingPage = FXMLLoader.load(getClass().getResource("JavaFX/ranking.fxml"));
+        /**
+         * save the content of ranking stage.
+         */
+        Parent rankingPage = FXMLLoader.load(getClass().getResource("JavaFX/ranking.fxml"));
         rankingStage.setTitle("Ranking list");
         rankingStage.setScene(new Scene(rankingPage, wideF2A, highF2A));// size of the window
     }
@@ -174,7 +165,10 @@ public class SpaceAsteroidApplication extends Application {
         beamColor = Color.WHITE;
         appearanceStage = new Stage();
         appearanceStage.setResizable(false);
-        appearancePage = FXMLLoader.load(getClass().getResource("JavaFX/appearanceChange.fxml"));
+        /**
+         * save the content of choose appearance stage.
+         */
+        Parent appearancePage = FXMLLoader.load(getClass().getResource("JavaFX/appearanceChange.fxml"));
         appearanceStage.setTitle("Choose your favourite here");
         appearanceStage.setScene(new Scene(appearancePage, wideF2A, highF2A));// size of the window
     }
