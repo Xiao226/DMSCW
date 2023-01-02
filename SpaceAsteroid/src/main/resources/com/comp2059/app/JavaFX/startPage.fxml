@@ -23,15 +23,15 @@
          <font>
             <Font size="31.0" />
          </font></Button>
-      <Button fx:id="appearance" layoutX="601.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToAppearanceChange" prefHeight="100.0" prefWidth="350.0" style="-fx-scale-shape: Circle; -fx-background-color: #FF7F50#FF7F50;" text="Appearance">
+      <Button fx:id="appearance" layoutX="601.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToAppearanceChange" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: #FFF5EE;" text="Appearance">
          <font>
             <Font size="32.0" />
          </font></Button>
-      <Button fx:id="ranking" layoutX="239.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToRanking" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: #00BFFF;" text="Ranking">
+      <Button fx:id="ranking" layoutX="239.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#onClickMoveToRanking" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: #FFF5EE;" text="Ranking">
          <font>
             <Font size="32.0" />
          </font></Button>
-      <ComboBox fx:id="module114514" layoutX="601.0" layoutY="497.0" onAction="#onMouseClickModel" prefHeight="70.0" prefWidth="350.0" promptText="Game Module Selection" style="-fx-background-color: #FFC0CB;" visibleRowCount="2">
+      <ComboBox fx:id="module114514" layoutX="601.0" layoutY="497.0" onAction="#onMouseClickModel" prefHeight="70.0" prefWidth="350.0" promptText="Game Module Selection" style="-fx-background-color: #FFF5EE;" visibleRowCount="2">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Normal" />
